@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>微信 房产管理后台</title>
+<link rel="stylesheet" href="css/styler.css" type="text/css" />
+<script language="javascript" src="http://112.124.55.78/wxfc/alldata.php" charset="utf-8"></script>
+<script language="javascript"  charset="utf-8">
+function test(url,id)
+{
+	
+  alert("É´«³ɹ¦");	
+	 var obj = document.getElementById(id);
+  	 obj.src=url;
+  	 
+	 //
+}
+function show_dyt_0()
+{
+	var obj = document.getElementById("dyt_hide_0");
+	obj.style.visibility="visible";
+}
+</script>
+<style>  
+#uploadImg1{ font-size:12px; width:70px;height:30px;overflow:hidden; position:absolute}  
+#file1{ position:absolute; z-index:100; margin-left:-4px;margin-right:-4px; width:70px;height:30px;font-size:20px;opacity:0;filter:alpha(opacity=0); margin-top:0px;}  
+#submitImg1{ margin-left:80px;margin-top:-1px;width:70px;height:30px;}
+#uploadImg2{ font-size:12px; width:70px;height:30px;overflow:hidden; position:absolute}  
+#file2{ position:absolute; z-index:100; margin-left:-4px;margin-right:-4px; width:70px;height:30px;font-size:20px;opacity:0;filter:alpha(opacity=0); margin-top:0px;}  
+#submitImg2{ margin-left:80px;margin-top:-1px;width:70px;height:30px;}
+#uploadImg3{ font-size:12px; width:70px;height:30px;overflow:hidden; position:absolute}  
+#file3{ position:absolute; z-index:100; margin-left:-4px;margin-right:-4px; width:70px;height:30px;font-size:20px;opacity:0;filter:alpha(opacity=0); margin-top:0px;}  
+#submitImg3{ margin-left:80px;margin-top:-1px;width:70px;height:30px;}
+</style>
+
+</head>
+<body onload="checkLogin();init_header();">
+<!-- 头部 【【-->
+<div class="header">
+  <div class="com-cent">
+    <div class="hd-title">微信 房产管理后台</div>
+    <div class="hd-log">欢迎你<span>亲爱的<em id="unm"></em>用户</span><a href="#none">退出</a></div>
+    <ul class="hd-link">
+      <li><a href="index_min.html">首页</a></li>
+      <li><a href="property_manage.html">管理后台</a></li>
+      <li><a href="data.html">数据统计</a></li>
+    </ul>
+  </div>
+</div>
+<!-- 头部 】】-->
+<!-- 二级菜单【【 -->
+<div class="box-menu">
+  <div class="com-menu">
+    <ul class="menu">
+      <li><a href="property_manage.html">楼盘管理</a></li>
+      <li><a href="house_manage.html">看房团管理</a></li>
+      <li><a href="#none" onmouseover="mopen('m1')" onmouseout="mclosetime()">楼盘印象管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="impression_inquiry.html">房友印象查询</a></li>
+          <li><a href="impression_set.html">房友印象设置</a></li>
+          <li><a href="review.html">专家点评管理</a></li>
+        </ul>
+      </li>
+      <li><a href="order_li.html" onmouseover="mopen('m2')" onmouseout="mclosetime()">认筹管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m2" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="order_li.html">认筹列表</a></li>
+          <li><a href="order.html">认筹订单</a></li>
+        </ul>
+      </li>
+      <li><a href="photo_inquiry.html" onmouseover="mopen('m3')" onmouseout="mclosetime()">照片管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m3" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="photo_inquiry.html">照片查询</a></li>
+          <li><a href="photo_manage.html">照片管理</a></li>
+        </ul>
+      </li>
+      <li class="curr"><a href="new.html">多页态</a></li>
+    </ul>
+  </div>
+</div>  
+<!-- 二级菜单 】】 -->
+<div class="cent-auto">
+  <div class="com-min">
+ 
+      <!-- 查询列表【【 -->
+      <div class="box-table"><!-- 添加hide隐藏 -->
+        <table width="760" border="0" cellspacing="1" cellpadding="0" bgcolor="#d7d7d7">
+          <tr>
+            <th>楼盘ID</th>
+            <th>楼盘名称</th>
+            <th>提交时间</th>
+            <th>状态</th>
+            <th>操作</th>
+          </tr>
+          <tbody id="list_lp_dyt">
+          <tr>
+            <td>352525</td>
+            <td>手法手法手</td>
+            <td>2013-11-03</td>
+            <td>待审核</td>
+            <td><a href="#none">编辑</a> <a href="#none">删除</a></td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="but-righ ma-top"><button class="btn-cha" type="button" onclick="show_dyt_0()">新增多页态</button></div>
+      </div>
+      <!-- 查询列表 】】-->
+  </div>  
+  <!-- 添加看房团【【 -->
+    <div class="com-min"  id="dyt_hide_0" style="visibility:hidden" >
+      <div class="tipe-lb"><label>查询楼盘：</label>
+        <select size="1" class="li-hd" id="list_loupan">
+          <option>请选择楼盘</option>
+          <option>0:00</option>
+        </select>
+      </div>
+       <form action="php/uploadfile2.php?id=dyt_banner" method="post" target="ifram_sign" enctype="multipart/form-data" >
+       <iframe name="ifram_sign" id="ifram_sign" src="" height="0" width="0" style="display:none;" ></iframe>
+     
+       <div class="tipe-lb"><label> .</label>多业态顶图(推荐图片尺寸：1440*340；图片小于100k)</div>
+      <div class="tipe-lb"><label> .</label><img id="dyt_banner"  src="" border="2" height="170"> </img></div>
+      <div class="tipe-lb"> <label> .</label> 
+     
+      <input type="button" id="uploadImg1" value="选择文件"></>
+      												<input class="inp-tex inp-300" name="picture" type="file" id="file1" onChange="APPLY.OnUpload1(this.value)"></>
+      												<input type="submit" id="submitImg1" value="上传" />
+      </form>											
+      </div>
+      <div class="tipe-lb"><label>多业态名称：</label> <input class="inp-tex inp-300" name="" type="text" id="dyt_title" /></div>
+      <div class="tipe-lb"><label>添加多业态简介：</label> <textarea class="text-kuang" name="" cols="" rows="" id="dyt_desc"></textarea></div>
+   
+    
+      <h3>完成操作</h3>
+      <div class="cent-bott"><input class="btn-cha" type="button" id="sbt_save_edit" value="保存修改"></input> <input class="btn-cha" type="button" id="sbt_add_all" value="完成提交"></input></div>
+     </div>
+    <!-- 添加看房团 】】-->
+<div class="box-layer" style="width:900px;height:1200px;visibility:hidden; " id="pop_box_5">
+ <div class="title" id="box_banner_5"><h2>添加新优惠</h2></div>
+  <a class="close" href="#none" title="关闭" id="close_pop_5">关闭</a>
+	    <div class="box-table"><!-- 添加hide隐藏 -->
+      <table width="560" border="0" cellspacing="1" cellpadding="0" bgcolor="#d7d7d7" style="margin-left:180px;">
+        <tr>
+          <th>业态名称</th>
+          <th>业态英文名</th>
+          <th>状态</th>
+        </tr>
+        <tbody id="list_yt">
+     
+        </tbody>
+      </table>
+      </div>
+      <br>
+      <div class="tipe-lb"><label> .</label>业态小图(推荐图片尺寸：192*106；图片小于50k)</div>
+       <form action="php/uploadfile2.php?id=yt_icon" method="post" target="ifram_sign2" enctype="multipart/form-data" >
+       <iframe name="ifram_sign2" id="ifram_sign2" src="" height="0" width="0" style="display:none;" ></iframe>
+      <div class="tipe-lb"><label> .</label><img id="yt_icon"  src=""  border="1" height="106" width="192" > 
+      
+      
+      <input type="button" id="uploadImg2" value="选择文件"></>
+      												<input class="inp-tex inp-300" name="picture" type="file" id="file2" onChange="APPLY.OnUpload1(this.value)"></>
+      												<input type="submit" id="submitImg2" value="上传" />
+      												
+      </div>
+      </form>
+      
+      <div class="tipe-lb"><label>业态名称：</label> <input class="inp-tex inp-300" name="" type="text" id="yt_title" /></div>
+      <div class="tipe-lb"><label>业态英文名：</label> <input class="inp-tex inp-300" name="" type="text" id="yt_desc" /></div>
+      <div class="tipe-lb"><label> 添加业态滚动图片：</label>  <input class="inp-tex inp-300" name="" border="0" type="text" readonly value="(推荐图片尺寸：640*310；图片小于50k)"/> </input></div>
+      		 <form action="php/uploadfile2.php?id=sc_pic_url_0" method="post" target="ifram_sign3" enctype="multipart/form-data" >
+      		 <iframe name="ifram_sign3" id="ifram_sign3" src="" height="0" width="0" style="display:none;" ></iframe>
+      		 <div class="tipe-lb"><label>.</label><img src=""  height="77"  width="160" border="1"  id="sc_pic_url_0">
+      		 	
+      		  	 <input type="button" id="uploadImg2" value="选择文件"></>
+      												<input class="inp-tex inp-300" name="picture" type="file" id="file3" onChange="APPLY.OnUpload1(this.value)"></>
+      												<input type="submit" id="submitImg3" value="上传" />
+      												
+      		 </div>
+      		 </form>
+      		 
+      		 <form action="php/uploadfile2.php?id=sc_pic_url_1" method="post" target="ifram_sign4" enctype="multipart/form-data" >
+      		 <iframe name="ifram_sign4" id="ifram_sign4" src="" height="0" width="0" style="display:none;" ></iframe>
+       		 <div class="tipe-lb"><label>.</label><img src="" height="77" width="160" border="1" id="sc_pic_url_1"></img>
+       		
+				<input type="button" id="uploadImg2" value="选择文件"></>
+      												<input class="inp-tex inp-300" name="picture" type="file" id="file3" onChange="APPLY.OnUpload1(this.value)"></>
+      												<input type="submit" id="submitImg3" value="上传" />
+       		 
+       		 </div>
+       		  </form>
+       		  
+       		  
+       		   <form action="php/uploadfile2.php?id=sc_pic_url_2" method="post" target="ifram_sign5" enctype="multipart/form-data" >
+      		 <iframe name="ifram_sign5" id="ifram_sign5" src="" height="0" width="0" style="display:none;" ></iframe>
+       		 <div class="tipe-lb"><label>.</label><img src="" height="77" width="160" border="1" id="sc_pic_url_2"></img>
+       		
+				<input type="button" id="uploadImg2" value="选择文件"></>
+      												<input class="inp-tex inp-300" name="picture" type="file" id="file3" onChange="APPLY.OnUpload1(this.value)"></>
+      												<input type="submit" id="submitImg3" value="上传" />
+       		 
+       		 </div>
+       		  </form>
+       		  
+       		   <form action="php/uploadfile2.php?id=sc_pic_url_3" method="post" target="ifram_sign6" enctype="multipart/form-data" >
+      		 <iframe name="ifram_sign6" id="ifram_sign6" src="" height="0" width="0" style="display:none;" ></iframe>
+       		 <div class="tipe-lb"><label>.</label><img src="" height="77" width="160" border="1" id="sc_pic_url_3"></img>
+       		
+				<input type="button" id="uploadImg2" value="选择文件"></>
+      												<input class="inp-tex inp-300" name="picture" type="file" id="file3" onChange="APPLY.OnUpload1(this.value)"></>
+      												<input type="submit" id="submitImg3" value="上传" />
+       		 
+       		 </div>
+       		  </form>
+       		  
+       		   <form action="php/uploadfile2.php?id=sc_pic_url_4" method="post" target="ifram_sign7" enctype="multipart/form-data" >
+      		 <iframe name="ifram_sign7" id="ifram_sign7" src="" height="0" width="0" style="display:none;" ></iframe>
+       		 <div class="tipe-lb"><label>.</label><img src="" height="77" width="160" border="1" id="sc_pic_url_4"></img>
+       		
+				<input type="button" id="uploadImg2" value="选择文件"></>
+      												<input class="inp-tex inp-300" name="picture" type="file" id="file3" onChange="APPLY.OnUpload1(this.value)"></>
+      												<input type="submit" id="submitImg3" value="上传" />
+       		 
+       		 </div>
+       		  </form>
+       		  
+       		  
+       	
+     
+      <div class="tipe-lb"><label>添加业态简介：</label> <textarea class="text-kuang" name="" cols="" rows="" id="yt_intro" /></textarea></div>
+      <div class="tipe-lb"><label>联系电话1：</label> <input class="inp-tex inp-300" name="" type="text" id="yt_phone1" /></div>
+      <div class="tipe-lb"><label>联系电话2：</label> <input class="inp-tex inp-300" name="" type="text" id="yt_phone2" /></div>
+      
+      <div class="tipe-lb">
+	  <div>
+		  <input type="button" id="" style="visibility:hidden;" value="添加新业态业态业态业态业态业态" />
+	   <input type="button" id="sbt_add_yt" value="添加新业态" />
+       <input type="button" id="sbt_save_edit_yt" value="保存修改" />
+	 </div>
+	  </input></div>
+      
+</div>
+<!--  添加新优惠 】】 -->
+<div class="box-layer" style="width:700px; visibility:hidden;" id="pop_box_0">
+  <div class="title" id="box_banner_0"><h2>添加新优惠</h2></div>
+  <a class="close" href="#none" title="关闭" id="close_pop_0">关闭</a>
+  <div class="tip-mian">
+    
+      
+    <div class="p-shuju">
+     
+       <div class="box-table"><!-- 添加hide隐藏 -->
+      <table width="360" border="0" cellspacing="1" cellpadding="0" bgcolor="#d7d7d7" style="margin-left:180px;">
+        <tr>
+          <th>优惠名称</th>
+          <th>状态</th>
+        </tr>
+        <tbody id="yt_yh_list">
+       
+        
+         </tbody>
+      </table>
+      <br>
+       </div>
+      <div class="layer-lb"><label></label> 
+         <form action="php/uploadfile2.php?id=yh_icon" method="post" target="ifram_sign8" enctype="multipart/form-data" >
+      		 <iframe name="ifram_sign8" id="ifram_sign8" src="" height="0" width="0" style="display:none;" ></iframe>
+       		 <div class="tipe-lb"><label>优惠头图:</label><img src="" height="106" width="106" border="1" id="yh_icon"></img>
+       		
+				<input type="button" id="uploadImg2" value="选择文件"></>
+      												<input class="inp-tex inp-300" name="picture" type="file" id="file3" onChange="APPLY.OnUpload1(this.value)"></>
+      												<input type="submit" id="submitImg3" value="上传" />
+       		 
+       		 </div>
+       		  </form>
+       		  
+      
+      
+      </div>
+      <div class="layer-lb"><label>优惠名称：</label> <input class="inp-tex inp-300" name="" type="text" id="yh_title"/></div>
+      <div class="layer-lb"><label>优惠描述：</label> <input class="inp-tex inp-300" name="" type="text" id="yh_desc"/></div>
+      <div class="layer-lb"><label>开始时间：</label> <input class="inp-tex inp-300" name="" type="text" id="yt_yh_s_time"/></div>
+      <div class="layer-lb"><label>结束时间：</label> <input class="inp-tex inp-300" name="" type="text" id="yt_yh_e_time"/></div>
+      
+      <div class="layer-lb"><label>详细说明：</label> <textarea class="layer-kuang" name="" cols="" rows="" id="yh_detail"></textarea></div>
+      <div class="layer-lb"><label>温馨提示：</label> <textarea class="layer-kuang" name="" cols="" rows="" id="yh_tip"></textarea></div>
+      <div class="layer-lb"><label>预约须知：</label> <textarea class="layer-kuang" name="" cols="" rows="" id="yh_toknow"></textarea></div>
+      <div class="but-auto"><a class="an-butn" href="#none" title="提交" id="ok_add_yh_detail" >提交</a></div>
+    </div>
+  </div>
+</div>
+<!--  添加新优惠 】】 -->
+
+<!--  添加多业态顶图 】】 -->
+<div class="box-layer" style="width:700px;visibility:hidden;" id="pop_box_1">
+  <div class="title" id="box_banner_1"><h2>添加多业态顶图(推荐图片尺寸：1440*340；图片小于100k)</h2></div>
+  <a class="close" href="#none" title="关闭" id="close_pop_1">关闭</a>
+  <div class="tip-mian">
+    <div class="p-shuju">
+       <div class="tipe-lb"><label></label><img src="img/banner_yt_default.jpg" height="128" width="540" border="1" id="dyt_top_banner"></img></div>
+      <div class="layer-lb"><button class="btn-cha" type="button">添加图片</button></div>
+      <div class="but-auto"><a class="an-butn" href="#none" title="确定" id="ok_add_dyt_top_banner">确定</a></div>
+    </div>
+  </div>
+</div>
+<!--  添加多业态顶图】】 -->
+<!--  添加业态小图 】】 -->
+<div class="box-layer" style="width:700px;visibility:hidden;" id="pop_box_2">
+  <div class="title" id="box_banner_2"><h2>添加业态小图 (推荐图片尺寸：192*106；图片小于50k)</h2></div>
+  <a class="close" href="#none" title="关闭" id="close_pop_2">关闭</a>
+  <div class="tip-mian">
+    <div class="p-shuju">
+       <div class="tipe-lb"><label></label><img src="img/jkzx.jpg" height="106" width="192" border="1" id="yt_thumbnail" ></img></div>
+      <div class="layer-lb"><button class="btn-cha" type="button">添加图片</button></div>
+      <div class="but-auto"><a class="an-butn" href="#none" title="确定" id="ok_add_yt_thumbnail">确定</a></div>
+    </div>
+  </div>
+</div>
+<!--  添加业态小图】】 -->
+<!--  添加业态头图 】】 -->
+<div class="box-layer" style="width:700px;visibility:hidden;" id="pop_box_3">
+  <div class="title" id="box_banner_3"><h2>添加业态头图(推荐图片尺寸：640*310；图片小于50k</h2></div>
+  <a class="close" href="#none" title="关闭" id="close_pop_3">关闭</a>
+  <div class="tip-mian">
+    <div class="p-shuju" id="yt_scroll_banner">
+       <div class="tipe-lb"><label></label><img src="img/yh.jpg" height="155"  border="1" id="yt_scroll_banner_0"></img></div>
+       <div class="tipe-lb"><label></label><img src="img/yh1.jpg" height="155"  border="1" id="yt_scroll_banner_1"></img></div>
+       <div class="tipe-lb"><label></label><img src="img/yh3.jpg" height="155"  border="1" id="yt_scroll_banner_2"></img></div>
+       <div class="tipe-lb"><label></label><img src="img/yh5.jpg" height="155"  border="1" id="yt_scroll_banner_3"></img></div>
+       <div class="tipe-lb"><label></label><img src="img/yh4.jpg" height="155"  border="1" id="yt_scroll_banner_4"></img></div>
+      <div class="layer-lb"><button class="btn-cha" type="button">添加图片</button></div>
+      <div class="but-auto"><a class="an-butn" href="#none" title="确定" id="ok_add_yt_scroll_banner">确定</a></div>
+    </div>
+  </div>
+</div>
+<!--  添加业态头图】】 -->
+<script type="text/javascript" src="./js/share.js"></script>
+<script type="text/javascript" src="./js/common.js"></script>
+<script type="text/javascript" src="./js/comm.js"></script>
+<script language="javascript" src="./js/admin_new.js" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+
+// 使用方式如下：
+
+function _Dragdrop(){
+
+	var _IsMousedown=false,_ClickLeft=0,_ClickTop=0;
+　	var _hDom;
+　	var _tDom;
+
+	 this.registerDragdropHandler = function(handler,target,cursor)
+	{
+		_hDom=this.get(handler);
+　		_tDom=this.get(target);
+　		_hDom.style.cursor=cursor||"move";
+
+		_hDom.onmousedown=this.startDrag; // 鼠标按下事件。
+　		document.onmouseup=this.endDrag;  // 鼠标释放事件。
+　		document.onmousemove=this.doDrag; // 鼠标移动事件。
+　		_tDom.onselectstart=_tDom.oncontextmenu=function(){return false;}; // 禁止选择和右键菜单。
+	}
+	
+	 this.startDrag = function(evt)
+	{
+		evt=window.event||evt;  // 获取当前事件对象。
+　	    _IsMousedown=true;  // 记录已经准备开始移动了。
+　      _ClickLeft=evt.clientX-parseInt(_tDom.style.left); // 记录当前坐标轴。
+　      _ClickTop=evt.clientY-parseInt(_tDom.style.top);
+	}
+	
+	 this.doDrag = function(evt)
+	 { 
+	  // 鼠标开始移动时的事件。
+	　 evt=window.event||evt; // 获取当前事件对象。
+　  	   if(!_IsMousedown)return false; // 如果_IsMousedown不等于真了返回。
+　		 _tDom.style.left=evt.clientX+"px"; // 把鼠标当前移动的位置赋值给div
+　		 _tDom.style.top=evt.clientY-_ClickTop+"px"; // 当前位置减去开始位置就是层当前存放的位置。
+　	 }
+
+	 this.endDrag = function()
+	{ // 释放鼠标左键时的事件。
+	　 		if(_IsMousedown)
+			{ // 如果_IsMousedown还为真那么就赋值为假。
+　　			if(this.isIE) _tDom.releaseCapture(); //该函数从当前的窗口释放鼠标捕获，并恢复通常的鼠标输入处理。
+　　			_IsMousedown=false;
+　 			}
+　	}
+	
+	  isIE:(navigator.appName=="Microsoft Internet Explorer"), // 判断是否为IE。
+	  this.get = function(element)
+	  { // 通过一串字符返回一个对象。
+　		if(typeof(element) == "string")
+		{
+　 		return document.getElementById(element);
+　		}
+　		return element;
+	}
+}
+    		
+//dragdrop.registerDragdropHandler("box_banner_0","pop_box_0");
+
+
+</script>
+
+<script language="javascript" src="js/comm.js" charset="utf-8"></script>
+</body>
+</html>
+
+<script language="javascript" src="js/xl.js" charset="utf-8"></script>
+

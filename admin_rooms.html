@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>微信 房产管理后台</title>
+<link rel="stylesheet" href="css/styler.css" type="text/css" />
+<script language="javascript" src="http://112.124.55.78/wxfc/alldata.php" charset="utf-8"></script>
+<script language="javascript"  charset="utf-8">
+function test(url,id)
+{
+	
+  alert("上传成功");	
+	 var obj = document.getElementById(id);
+  	 obj.src=url;
+  	 
+	 //
+}
+function show_dyt_0()
+{
+	var obj = document.getElementById("dyt_hide_0");
+	obj.style.visibility="visible";
+}
+</script>
+<style>  
+#uploadImg1{ font-size:12px; width:70px;height:30px;overflow:hidden; position:absolute}  
+#file1{ position:absolute; z-index:100; margin-left:-4px;margin-right:-4px; width:70px;height:30px;font-size:20px;opacity:0;filter:alpha(opacity=0); margin-top:0px;}  
+#submitImg1{ margin-left:80px;margin-top:-1px;width:70px;height:30px;}
+#uploadImg2{ font-size:12px; width:70px;height:30px;overflow:hidden; position:absolute}  
+#file2{ position:absolute; z-index:100; margin-left:-4px;margin-right:-4px; width:70px;height:30px;font-size:20px;opacity:0;filter:alpha(opacity=0); margin-top:0px;}  
+#submitImg2{ margin-left:80px;margin-top:-1px;width:70px;height:30px;}
+#uploadImg3{ font-size:12px; width:70px;height:30px;overflow:hidden; position:absolute}  
+#file3{ position:absolute; z-index:100; margin-left:-4px;margin-right:-4px; width:70px;height:30px;font-size:20px;opacity:0;filter:alpha(opacity=0); margin-top:0px;}  
+#submitImg3{ margin-left:80px;margin-top:-1px;width:70px;height:30px;}
+</style>
+
+</head>
+<body >
+<!-- 头部 【【-->
+<div class="header">
+  <div class="com-cent">
+    <div class="hd-title">微信 房产管理后台</div>
+    <div class="hd-log">欢迎你<span>亲爱的<em id="unm"></em>用户</span><a href="#none">退出</a></div>
+    <ul class="hd-link">
+      <li><a href="index_min.html">首页</a></li>
+      <li><a href="property_manage.html">管理后台</a></li>
+      <li><a href="data.html">数据统计</a></li>
+    </ul>
+  </div>
+</div>
+<!-- 头部 】】-->
+<!-- 二级菜单【【 -->
+<div class="box-menu">
+  <div class="com-menu">
+    <ul class="menu">
+       <li class="curr"><a href="property_manage.html" onmouseover="mopen('m5')" onmouseout="mclosetime()">楼盘管理</a>
+		<ul class="menu-xia" style="visibility:hidden;" id="m5" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="admin_rooms.html">户型管理</a></li>
+        
+        </ul>
+	  </li>
+      <li><a href="house_manage.html" onmouseover="mopen('m4')" onmouseout="mclosetime()">看房团管理</a>
+		<ul class="menu-xia" style="visibility:hidden;" id="m4" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="group_apply_users.html">看房团报名</a></li>
+        
+        </ul>
+	  </li>
+      <li><a href="#none" onmouseover="mopen('m1')" onmouseout="mclosetime()">楼盘印象管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="impression_inquiry.html">房友印象查询</a></li>
+          <li><a href="impression_set.html">房友印象设置</a></li>
+          <li><a href="review.html">专家点评管理</a></li>
+        </ul>
+      </li>
+      <li><a href="order_li.html" onmouseover="mopen('m2')" onmouseout="mclosetime()">认筹管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m2" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="order_li.html">认筹列表</a></li>
+          <li><a href="order.html">认筹订单</a></li>
+        </ul>
+      </li>
+      <li><a href="photo_inquiry.html" onmouseover="mopen('m3')" onmouseout="mclosetime()">照片管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m3" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="photo_inquiry.html">照片查询</a></li>
+          <li><a href="photo_manage.html">照片管理</a></li>
+        </ul>
+      </li>
+      <li class="menu-xia"><a href="new.html">多页态</a></li>
+    </ul>
+  </div>
+</div>  
+<!-- 二级菜单 】】 -->
+<div class="cent-auto">
+  <div class="com-min">
+ 
+      <!-- 查询列表【【 -->
+	  <div class="tipe-lb"><label>选择楼盘：</label>
+        <select size="1" class="li-hd" id="list_loupan">
+          <option>请选择楼盘</option>
+          <option>0:00</option>
+        </select>
+      </div>
+      <div class="box-table"><!-- 添加hide隐藏 -->
+        <table width="760" border="0" cellspacing="1" cellpadding="0" bgcolor="#d7d7d7">
+          <tr>
+            <th>户型ID</th>
+            <th>楼盘ID</th>
+            <th>户型名</th>
+            <th>类型</th>
+            <th>操作</th>
+          </tr>
+          <tbody id="list_hx">
+          
+          </tbody>
+        </table>
+        <div class="but-righ ma-top"><button class="btn-cha" type="button" onclick="APPLY.f_ShowHxInfo(0)">添加户型</button></div>
+      </div>
+      <!-- 查询列表 】】-->
+  </div>  
+  <!-- 添加看房团【【 -->
+    <div class="com-min"  id="Hx_detail" style="visibility:hidden" >
+	 
+	 <div class="tipe-lb"><label>户型名：</label><input name="v1" id="v1" value=""/></div>
+	 <div class="tipe-lb"><label>户型描述：</label><input name="v2" id="v2" value=""/></div>
+	 <div class="tipe-lb"><label>几房几厅：</label><input name="v3" id="v3" value=""/></div>
+	 <div class="tipe-lb"><label>楼层：</label><input name="v4" id="v4" value=""/></div>
+	 <div class="tipe-lb"><label>建筑面积：</label><input name="v5" id="v5" value=""/></div>
+	 <div class="tipe-lb"><label>套内面积：</label><input name="v6" id="v6" value=""/></div>
+	 <div class="tipe-lb"><label>详细信息：</label><textarea  class="text-kuang" name="v7" id="v7" cols="" rows="" id=""></textarea></div>
+	 
+	 <h3>户型整体效果图</h3>
+	 
+	 
+       <form id="hxzt"  method="post" target="ifram_sign" enctype="multipart/form-data" >
+       <iframe name="ifram_sign" id="ifram_sign" src="" height="0" width="0" style="display:none;" ></iframe>
+     
+       <div class="tipe-lb"><label> .</label>(推荐图片尺寸：1600*1600；图片小于100k)</div>
+       <div class="tipe-lb"><label> .</label><img src="xxx" border="2" id="v8" height="160"> </img></div>
+       <div class="tipe-lb"><label> .</label> 
+     
+      <input type="button" id="uploadImg1" value="选择文件"></>
+      												<input class="inp-tex inp-300" name="picture" type="file" id="file1" onChange=""></>
+      												<input type="button" onclick="APPLY.f_UploadHxzt()" id="submitImg1" value="上传" />
+													
+      </form>											
+      </div>
+	  
+      <h3>户型局部图</h3>
+	 
+	 
+       <form id="hxjb" method="post" target="ifram_sign" enctype="multipart/form-data" >
+       <iframe name="ifram_sign" id="ifram_sign" src="" height="0" width="0" style="display:none;" ></iframe>
+     
+       <div class="tipe-lb"><label> .</label>(推荐图片尺寸：960*960；图片小于100k)</div>
+	   <div class="tipe-lb"><label>图片名称：</label><input name="v9_0" id="v9_0"  />(主卧/次卧/阳台/走廊/等)</div>
+       <div class="tipe-lb"><label> .</label><img src="test1"  id="v9_1"  border="2" height="160"> </img></div>
+       <div class="tipe-lb"><label> .</label> 
+     
+      <input type="button" id="uploadImg1" value="选择文件"></>
+      												<input class="inp-tex inp-300" name="picture" type="file" id="file1" onChange="APPLY.OnSelectHximg(this.value)"></>
+      												<input type="button"  onclick="APPLY.f_UploadHxjb()"  id="submitImg1" value="上传" />
+													<input type="button"  onclick="APPLY.f_AddHxImg()" id="" value="确认添加" />
+      </form>											
+      </div>
+	  <div class="box-table"><!-- 添加hide隐藏 -->
+        <table width="760" border="0" cellspacing="1" cellpadding="0" bgcolor="#d7d7d7">
+          <tr>
+            <th>图片名称</th>
+            <th>缩略图</th>
+			<th>链接</th>
+            <th>操作</th>
+          </tr>
+          <tbody id="list_hx_imgs">
+          
+          </tbody>
+        </table>
+       
+      </div>
+	  <br><br>
+	  <h3>添加360全景首页背景图</h3>
+	  
+	   <form id="360bj" method="post" target="ifram_sign" enctype="multipart/form-data" >
+       <iframe name="ifram_sign" id="ifram_sign" src="" height="0" width="0" style="display:none;" ></iframe>
+     
+       <div class="tipe-lb"><label> .</label>全景首页背景图(推荐图片尺寸：688*1156；图片小于100k)</div>
+       <div class="tipe-lb"><label> .</label><img   src=""  id="v10"  border="2" height="160"> </img></div>
+       <div class="tipe-lb"><label> .</label> 
+     
+      <input type="button" id="uploadImg1" value="选择文件"></>
+      												<input class="inp-tex inp-300" name="picture" type="file" id="file1" onChange=""></>
+      												<input type="button" onclick="APPLY.f_Upload360bj()"  id="submitImg1" value="上传" />
+													
+      </form>											
+      </div>
+	  
+	  <h3>添加360全景</h3>
+	  <div class="tipe-lb"><label> .</label>(360全景的文件通过ftp上传，这里填写对应连接)</div>
+	  <div class="tipe-lb"><label>全景名称：</label><input name="v11_0" id="v11_0" value=""/>(主卧/次卧/阳台/走廊/等)</div>
+	  <div class="tipe-lb"><label>全景链接：</label><input name="v11_1" id="v11_1" value=""/></div>
+	  <div class="tipe-lb"><label>.</label><input type="button"  onclick="APPLY.f_AddHx360()" id="" value="确认添加" /></div>
+	   <div class="box-table"><!-- 添加hide隐藏 -->
+        <table width="760" border="0" cellspacing="1" cellpadding="0" bgcolor="#d7d7d7">
+          <tr>
+            <th>全景名称</th>
+            <th>全景链接</th>
+            <th>操作</th>
+          </tr>
+          <tbody id="list_360">
+          
+          </tbody>
+        </table>
+       
+      </div>
+      <h3>完成操作</h3>
+      <div class="cent-bott"> <input class="btn-cha" id="save_all" name="" onclick="APPLY.f_Save(this.name)" type="button" id="save_all" value="完成提交"></input></div>
+     </div>
+    <!-- 添加看房团 】】-->
+
+
+<script type="text/javascript" src="./js/share.js"></script>
+<script language="JavaScript" type="text/javascript">
+
+
+</script>
+
+<script language="javascript"  src="js/comm.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/share.js"></script>
+<script type="text/javascript" src="./js/common.js"></script>
+<script language="javascript"  src="./js/config.js" charset="utf-8"></script>
+<script language="javascript"  src="./js/admin_rooms.js" charset="utf-8"></script>
+</body>
+</html>
+
+<script language="javascript" charset="utf-8">
+//checkLogin();
+//init_header();
+</script>

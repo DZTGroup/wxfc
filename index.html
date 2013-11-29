@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>微信 房产管理后台</title>
+<link rel="stylesheet" href="css/styler.css" type="text/css" />
+</head>
+<body>
+<!-- 头部 【【-->
+<div class="header">
+  <div class="com-cent">
+    <div class="hd-title">微信 房产管理后台</div>
+    <div class="hd-log">欢迎你<span>亲爱的<em id="unm"></em>用户</span><a href="logout.php">退出</a></div>
+    <ul class="hd-link">
+      <li class="curr"><a href="index.html">首页</a></li>
+	    <li><a href="property_manage.html">管理后台</a></li>
+	    <li><a href="data.html">数据统计</a></li>
+    </ul>
+  </div>
+</div>
+<!-- 头部 】】-->
+<div class="cent-auto">
+  <div class="hexin-tiele">核心数据</div>
+  <div class="da-figure" id="chartContainer"></div>
+</div>
+</body>
+</html>
+<script type="text/javascript" language="JavaScript" src="js/AnyChart.js"></script>
+<script language="javascript" src="js/xl.js" charset="utf-8"></script>
+<script language="javascript" src="js/comm.js" charset="utf-8"></script>
+<script language="javascript" >
+//checkLogin();
+//init_header();
+
+var chart = new AnyChart('swf/AnyChart.swf', 'swf/Preloader.swf');
+chart.width = "100%";
+chart.height = "100%";
+chart.setXMLFile("tj_data.php?id=2&type=1&t1=2013-01-01&t2=2013-09-31");
+chart.write("chartContainer");
+
+</script>

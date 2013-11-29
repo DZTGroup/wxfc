@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>微信 房产管理后台</title>
+<link rel="stylesheet" href="css/styler.css" type="text/css" />
+<script type="text/javascript" src="js/dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118" charset="utf-8"></script>
+<link type="text/css" rel="stylesheet" href="js/dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen"></LINK>
+</head>
+<body>
+<!-- 头部 【【-->
+<div class="header">
+  <div class="com-cent">
+    <div class="hd-title">微信 房产管理后台</div>
+    <div class="hd-log">欢迎你<span>亲爱的<em id="unm"></em>用户</span><a href="logout.php">退出</a></div>
+    <ul class="hd-link">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="property_manage.html">管理后台</a></li>
+      <li><a href="data.html">数据统计</a></li>
+    </ul>
+  </div>
+</div>
+<!-- 头部 】】-->
+<!-- 二级菜单【【 -->
+<div class="box-menu">
+  <div class="com-menu">
+    <ul class="menu">
+      <li><a href="property_manage.html">楼盘管理</a></li>
+      <li><a href="house_manage.html">看房团管理</a></li>
+      <li><a href="#none" onmouseover="mopen('m1')" onmouseout="mclosetime()">楼盘印象管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="impression_inquiry.html">房友印象查询</a></li>
+          <li><a href="impression_set.html">房友印象设置</a></li>
+          <li><a href="review.html">专家点评管理</a></li>
+        </ul>
+      </li>
+      <li><a href="order_li.html" onmouseover="mopen('m2')" onmouseout="mclosetime()">认筹管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m2" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="order_li.html">认筹列表</a></li>
+          <li><a href="order.html">认筹订单</a></li>
+        </ul>
+      </li>
+      <li class="curr"><a href="photo_inquiry.html" onmouseover="mopen('m3')" onmouseout="mclosetime()">照片管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m3" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="photo_inquiry.html">照片查询</a></li>
+          <li><a href="photo_manage.html">照片管理</a></li>
+        </ul>
+      </li>
+      <li><a href="new.html">多页态</a></li>
+    </ul>
+  </div>
+</div>  
+<!-- 二级菜单 】】 -->
+<div class="cent-auto">
+    <!-- 相册查询【【 -->
+    <div class="com-min">
+      <h3>相册查询</h3>
+      <form target="forsubmit" action="q_up_img.php" id="fm1" method="get">
+      <div class="order-lb"><label>楼盘名称：</label>
+        <select size="1" class="li-hd" id="lp_sel" name="bid">
+        </select>
+      </div>
+      <div class="order-lb"><label>时间选择：</label> <input type="text" maxlength="10" value="" name="tc1" id="tc1" class="text-tips" ><span class="ico-calendar" onclick="displayCalendar(document.getElementById('tc1'),'yyyy-mm-dd',this)"><!-- 日历图标 --></span> 到  <input type="text" maxlength="10" value="" name="tc2" id="tc2" class="text-tips" ><span class="ico-calendar" onclick="displayCalendar(document.getElementById('tc2'),'yyyy-mm-dd',this)"><!-- 日历图标 --></span> <button class="btn-cha" type="button" onclick="document.getElementById('fm1').submit();">查询</button> <!--button class="btn-cha" type="button">下载</button-->
+      </div>
+      </form>
+    <!-- 相册查询 】】-->
+    <!-- 相册图片【【 -->
+    <div id="imglist">
+    </div>
+    <!-- 相册图片【【 -->
+</div>
+<form target="forsubmit" id="fm2" method="post" style="display:none;"></form>
+<iframe name="forsubmit" id="ifram_sign" src="" height="0" width="0" style="display:none;" ></iframe>
+</body>
+</html>
+<script language="javascript" src="js/xl.js" charset="utf-8"></script>
+<script language="javascript" src="js/jquery-2.0.3.js"></script>
+<script language="javascript" src="js/comm.js" charset="utf-8"></script>
+<script language="javascript" src="alldata.php" charset="utf-8"></script>
+<script language="javascript" src="js/json.js"></script>
+<script language="javascript" >
+
+var g_cur_bid = 0;
+
+function init_lp_select()
+{
+	var s = "";
+	for ( var i=0; i<g_data.length; i++ )
+	{
+		s += '<option value="' + g_data[i][0] + '">' + g_data[i][1] + '</option>';
+	}
+	
+	$("#lp_sel").html( s );
+}
+
+function show_img( arr )
+{
+	var s = "";
+	for ( var i=0; i<arr.length; i++ )
+	{
+		s += '<div class="cem-img"><img src="' + arr[i][0] + '" /> <button class="btn-cha" type="button" onclick="del_upimg(' + arr[i][1] + ')">删除</button></div>';
+	}
+	$("#imglist").html( s );
+}
+
+function del_upimg( id )
+{
+	$("#fm2").attr( "action", "d_up_img.php?id="+id );
+	$("#fm2").submit();
+}
+
+checkLogin();
+init_header();
+init_lp_select();
+
+//var a = [['http://mmbiz.qpic.cn/mmbiz/X4XEGYefSBS5oOGAotwPArHGdJ66yrxJuwJIiaRbeBkRUOh1fMXw1XJxXEvD0s6oVL7y0w0kaEdkbqOrIQdsboQ/0','5']['http://mmbiz.qpic.cn/mmbiz/X4XEGYefSBS5oOGAotwPAuh0ALl7YGrLqo9Hoiaic1TTcaU98RJrbJgJdAHnVduDFSGv9Kr2VSlZYvdxgmykqCWQ/0','6']['http://mmbiz.qpic.cn/mmbiz/X22ZiaiczhfNED2hiaWkq3x6y44Bvea2dR60pGDYtYdCkx6vDub2LmrdoFfekQ7ybZCtaeLnvXaDyb8g2UoB6Tb0w/0','7']['http://mmbiz.qpic.cn/mmbiz/X22ZiaiczhfNED2hiaWkq3x6y44Bvea2dR6h412uNBib44d00P8aavVq0TBg517SicRCYQVFsdekyVhy24SREFe88Fg/0','8']['http://mmbiz.qpic.cn/mmbiz/X22ZiaiczhfNED2hiaWkq3x6y44Bvea2dR6qun0KicPRj8bURHNKOYiaNZUBjXy1mib7JwdEBicpYQVPpgEOiagTHNEA9Q/0','13']['http://mmbiz.qpic.cn/mmbiz/X22ZiaiczhfNED2hiaWkq3x6y44Bvea2dR6IMpxibOojQAjbyrMHNmWDvwOllE659xMbxgf0v3FeGvLuic7qgYRibZYQ/0','14']['http://mmbiz.qpic.cn/mmbiz/X22ZiaiczhfNED2hiaWkq3x6y44Bvea2dR6xknder9picMibpz0VibF2rf7ZouvzRk0TibU44A3icpdYktbiaSnCPnBfNLw/0','15']['http://mmbiz.qpic.cn/mmbiz/X22ZiaiczhfNED2hiaWkq3x6y44Bvea2dR6twAj1cvkja4GMt0BAHzV1wdhy2zsJiaWC84yuqtF8picR8DQCReTsqdg/0','16']];
+show_img(a);
+
+</script>

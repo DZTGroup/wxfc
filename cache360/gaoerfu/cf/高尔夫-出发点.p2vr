@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Pano2VR project file  -->
+<pano2vrconfig>
+  <panorama>
+    <input>
+      <patch/>
+      <type>auto</type>
+      <filename>C:/Documents and Settings/Administrator/桌面/九龙山样板房360度全景20131031TX/高尔夫/出发点/DSC_0048 Panorama.jpg</filename>
+    </input>
+    <viewingparameter>
+      <pan>
+        <start>29</start>
+        <min>0</min>
+        <max>360</max>
+      </pan>
+      <tilt>
+        <start>15</start>
+        <min>-90</min>
+        <max>81.5</max>
+      </tilt>
+      <fov>
+        <start>70</start>
+        <min>70</min>
+        <max>70</max>
+      </fov>
+      <pannorth>0</pannorth>
+    </viewingparameter>
+    <userdata/>
+    <hotspots/>
+    <output>
+      <htmlcss>
+        <html>
+          <enabled>1</enabled>
+          <filename>ok/ok.html</filename>
+          <template>房产模板-中文版-10003.ggt</template>
+          <values>
+            <value id="bgcolor">#ffffff</value>
+            <value id="fullscreen">true</value>
+            <value id="gyro">false</value>
+            <value id="jsxml">false</value>
+            <value id="manifest">false</value>
+            <value id="maps">false</value>
+            <value id="pagetitle">高尔夫出发点</value>
+            <value id="parseanchor">false</value>
+            <value id="showuserdata">false</value>
+            <value id="swf"/>
+            <value id="swffirst">false</value>
+            <value id="swfgeneric">true</value>
+            <value id="tablebgcolor">#dddddd</value>
+            <value id="tablebordercolor">#777777</value>
+            <value id="tabletextcolor">#000000</value>
+            <value id="textcolor">#000000</value>
+            <value id="touchicon"/>
+          </values>
+        </html>
+        <facequality/>
+        <autorotate>
+          <enabled>1</enabled>
+          <speed>0.2</speed>
+          <delay>2</delay>
+          <returntohorizon>0</returntohorizon>
+          <afterloaded>1</afterloaded>
+          <nodedelay>0</nodedelay>
+        </autorotate>
+        <hotspottext>
+          <enabled>0</enabled>
+          <width>180</width>
+          <height>20</height>
+          <auto>0</auto>
+          <textcolor>#000000</textcolor>
+          <textwrap>1</textwrap>
+          <background>1</background>
+          <backgroundcolor>#ffffff</backgroundcolor>
+          <border>1</border>
+          <bordercolor>#000000</bordercolor>
+          <borderradius>1</borderradius>
+        </hotspottext>
+        <hotspotstyle>
+          <viewmode>hidden</viewmode>
+          <backgroundcolor>#0000ff,64</backgroundcolor>
+          <bordercolor>#0000ff</bordercolor>
+        </hotspotstyle>
+        <filename>ok/ok.xml</filename>
+        <tilesize>685</tilesize>
+        <quality>60</quality>
+        <progressivejpeg>1</progressivejpeg>
+        <cubefilename>images/$n.jpg</cubefilename>
+        <cubefacenaming>_5</cubefacenaming>
+        <windowwidth>640</windowwidth>
+        <windowheight>480</windowheight>
+        <fovmode>vertical</fovmode>
+        <sensitivity>8</sensitivity>
+        <masssimulation>1</masssimulation>
+        <locked>0</locked>
+        <invertcontrol>1</invertcontrol>
+        <dblclickfullscreen>0</dblclickfullscreen>
+        <lockedwheel>1</lockedwheel>
+        <invertwheel>0</invertwheel>
+        <speedwheel>1</speedwheel>
+        <keyboardlocked>0</keyboardlocked>
+        <hideaboutbox>1</hideaboutbox>
+        <skinSvgToPng>0</skinSvgToPng>
+        <skinimagepath>images</skinimagepath>
+        <preview>grayscale</preview>
+        <previewcolor>#808080</previewcolor>
+        <previewresolution>4</previewresolution>
+        <previewquality>25</previewquality>
+        <skinfile/>
+      </htmlcss>
+    </output>
+    <sounds/>
+  </panorama>
+</pano2vrconfig>

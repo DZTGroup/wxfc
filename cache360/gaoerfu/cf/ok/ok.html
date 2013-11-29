@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script type="text/javascript">try{document.write(decodeURIComponent('<title>%E9%AB%98%E5%B0%94%E5%A4%AB%E5%87%BA%E5%8F%91%E7%82%B9</title>'));}catch(e){}</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="stylesheet" href="http://imgcache.qq.com/c/=/lifestyle/app/wx_house/css/3dview.css?max_age=864000" />
+    <script type="text/javascript" src="http://imgcache.qq.com/c/=/club/life/trade/libs/pano2vr_player.js,/club/life/trade/libs/skin.js,/club/life/trade/weixin/share.js,/club/life/trade/libs/3dview.js,/club/life/trade/libs/swfobject.js?max_age=864000"></script>
+</head>
+<body>
+	<div id="container" style="width:100%;height:100%;">
+		This content requires HTML5/CSS3, WebGL, or Adobe Flash Player Version 9 or higher.
+	</div>
+	<script type="text/javascript">
+		// check for CSS3 3D transformations and WebGL
+		if (ggHasHtml5Css3D() || ggHasWebGL()) {
+			// create the panorama player with the container
+			pano=new pano2vrPlayer("container");
+			// add the skin object
+			skin=new pano2vrSkin(pano);
+			// load the configuration
+			pano.readConfigUrl("ok.xml");
+			// hide the URL bar on the iPhone
+			hideUrlBar();
+		} else 
+		if (swfobject.hasFlashPlayerVersion("9.0.0")) {
+			var flashvars = {};
+			var params = {};
+			params.quality = "high";
+			params.bgcolor = "#ffffff";
+			params.allowscriptaccess = "sameDomain";
+			params.allowfullscreen = "true";
+			var attributes = {};
+			attributes.id = "pano";
+			attributes.name = "pano";
+			attributes.align = "middle";
+			flashvars.panoxml=location.pathname.replace(/[\w\d_]+\.html.*$/i,"")+"ok.xml";
+			params.base=".";
+			swfobject.embedSWF(
+				"http://imgcache.gtimg.cn/club/life/trade/libs/pano2vr_player.swf", "container", 
+				"100%", "100%",
+				"9.0.0", "", 
+				flashvars, params, attributes);			
+		}
+	</script>
+    <div class='view_change'><a href='javascript:void(0);' onclick='goBack();return false'><script type="text/javascript">
+        try{document.write(decodeURIComponent('%E5%88%87%E6%8D%A2%E6%88%BF%E9%97%B4'));}catch(e){}
+    </script></a></div>
+	<noscript>
+		<p><b>Please enable Javascript!</b></p>
+	</noscript>
+    <script type='text/javascript' src='http://trade.qq.com/fangchan/static/10003.sharedata.js?max_age=86400'></script>
+</body>
+</html>

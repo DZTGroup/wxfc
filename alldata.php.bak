@@ -1,0 +1,27 @@
+<?php
+
+header("Content-type:text/javascript");
+
+include ("comm.php");
+
+$contents = "var g_data=[";
+
+db_begin();
+select_db( "building" );
+while ($line = mysql_fetch_array($db_result))
+{
+	$jj = $line["v24"];
+	$jj = str_replace( "\r", "", $jj );
+	$jj = str_replace( "\n", "<br>", $jj );
+	$jt = $line["v25"];
+	$jt = str_replace( "\r", "", $jt );
+	$jt = str_replace( "\n", "<br>", $jt );
+	$contents = $contents . sprintf( "[%u,'%s','time','status','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s'],", $line["id"], $line["v1"], $line["v2"], $line["v3"], $line["v4"], $line["v5"], $line["v6"], $line["v7"], $line["v8"], $line["v9"], $line["v10"], $line["v11"], $line["v12"], $line["v13"], $line["v14"], $line["v15"], $line["v16"], $line["v17"], $line["v18"], $line["v19"], $line["v20"], $line["v21"], $line["v22"], $line["v23"], $jj, $jt );
+}
+db_end();
+
+$contents = $contents . "];";
+
+echo "$contents";
+
+?>

@@ -1,0 +1,80 @@
+<anychart>
+	<settings>
+		<animation enabled="True"/>
+	</settings>
+  <charts>
+    <chart plot_type="CategorizedVertical">
+    	<chart_settings>
+    		<title>
+    			<text>Multi-Series: Spline Chart</text>
+    			<background enabled="false"/>
+    		</title>
+    		<axes>
+    			<x_axis tickmarks_placement="Center">
+    				<labels display_mode="Stager"/>
+    			</x_axis>
+    		</axes>
+    	</chart_settings>
+    	<data_plot_settings default_series_type="Spline">
+    		<line_series>
+    			<tooltip_settings enabled="true">
+<format>
+Series: {%SeriesName}
+Point Name: {%Name}
+Value: {%YValue}
+</format>
+    			</tooltip_settings>
+    			<line_style>
+    				<line thickness="3"/>
+	    		</line_style>
+    		</line_series>
+    	</data_plot_settings>
+	    <data>
+			<series name="Series 1">
+			  <point name="P1" y="10"/>
+			  <point name="P2" y="12"/>
+			  <point name="P3" y="11"/>
+			  <point name="P4" y="15"/>
+			  <point name="P5" y="20"/>
+			  <point name="P6" y="22"/>
+			</series>
+			
+			<series name="Series 2">
+				<point name="P1"  y="30"/>
+				<point name="P2"  y="32"/>
+				<point name="P3"  y="35"/>
+				<point name="P4"  y="40"/>
+				<point name="P5"  y="42"/>
+				<point name="P6"  y="35"/>
+				<point name="P7"  y="36"/>
+				<point name="P8"  y="31"/>
+				<point name="P9"  y="35"/>
+				<point name="P10" y="36"/>
+				<point name="P11" y="40"/>
+				<point name="P12" y="42"/>
+				<point name="P13" y="40"/>
+				<point name="P14" y="38"/>
+				<point name="P15" y="40"/>
+				<point name="P16" y="40"/>
+				<point name="P17" y="38"/>
+				<point name="P18" y="36"/>
+				<point name="P19" y="30"/>
+				<point name="P20" y="29"/>
+				<point name="P21" y="28"/>
+				<point name="P22" y="25"/>
+				<point name="P23" y="28"/>
+				<point name="P24" y="29"/>
+				<point name="P25" y="30"/>
+				<point name="P26" y="40"/>
+				<point name="P27" y="32"/>
+				<point name="P28" y="33"/>
+				<point name="P29" y="34"/>
+				<point name="P30" y="30"/>
+				<point name="P31" y="35"/>
+			</series>
+	    </data>
+    </chart>
+  </charts>
+</anychart>
+			
+			

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panorama id="" hideabout="1">
+  <view fovmode="0" pannorth="0">
+    <start pan="29" fov="70" tilt="15"/>
+    <min pan="0" fov="70" tilt="-90"/>
+    <max pan="360" fov="70" tilt="81.5"/>
+  </view>
+  <userdata title="" datetime="" description="" copyright="" tags="" author="" source="" comment="" info="" longitude="" latitude=""/>
+  <hotspots width="180" height="20" wordwrap="1">
+    <label width="180" backgroundalpha="1" enabled="0" height="20" backgroundcolor="0xffffff" bordercolor="0x000000" border="1" textcolor="0x000000" background="1" borderalpha="1" borderradius="1" wordwrap="1" textalpha="1"/>
+    <polystyle mode="0" backgroundalpha="0.2509803921568627" backgroundcolor="0x0000ff" bordercolor="0x0000ff" borderalpha="1"/>
+  </hotspots>
+  <media/>
+  <input tile0url="images/DSC_0048 Panorama_0.jpg" prev5url="images/DSC_0048 Panorama_preview_5.jpg" prev4url="images/DSC_0048 Panorama_preview_4.jpg" prev3url="images/DSC_0048 Panorama_preview_3.jpg" prev2url="images/DSC_0048 Panorama_preview_2.jpg" prev1url="images/DSC_0048 Panorama_preview_1.jpg" prev0url="images/DSC_0048 Panorama_preview_0.jpg" tile5url="images/DSC_0048 Panorama_5.jpg" tilesize="685" tile4url="images/DSC_0048 Panorama_4.jpg" tile3url="images/DSC_0048 Panorama_3.jpg" tilescale="1.014598540145985" tile2url="images/DSC_0048 Panorama_2.jpg" tile1url="images/DSC_0048 Panorama_1.jpg"/>
+  <autorotate speed="0.200" nodedelay="0.00" startloaded="1" returntohorizon="0.000" delay="2.00"/>
+  <control simulatemass="1" lockedmouse="0" lockedkeyboard="0" dblclickfullscreen="0" invertwheel="0" lockedwheel="1" invertcontrol="1" speedwheel="1" sensitivity="8"/>
+</panorama>

@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>微信 房产管理后台</title>
+<link rel="stylesheet" href="css/styler.css" type="text/css" />
+<script language="javascript" src="http://112.124.55.78/wxfc/alldata.php" charset="utf-8"></script>
+<script type="text/javascript" src="js/dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118" charset="utf-8"></script>
+<link type="text/css" rel="stylesheet" href="js/dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen"></LINK>
+<script language="javascript" charset="utf-8">
+function test(url)
+{
+	alert("上传成功");
+	 var obj = document.getElementById("title_pic"); //selectid
+  	 obj.value=url;
+	 
+	 obj = document.getElementById("banner");
+  	 obj.src=url;
+  	 
+	 //
+}
+var lineNum=1;
+function Addline()
+{
+	//<div class="tipe-lb"><label>线路名称：</label> <input class="inp-tex" name="" type="text" id="line" /> 
+	//<a class="blue" href="#none" name="1" onclick="Delline()">删除路线</a>
+	//</div>
+	
+
+	var para=document.createElement("div");
+		para.setAttribute("class","tipe-lb");
+		para.setAttribute("id","div_line"+(lineNum+1));
+		
+	var label=document.createElement("label");
+	var labertxt=document.createTextNode("线路名称：");
+	label.appendChild(labertxt);
+	
+	var input=document.createElement("input");
+	input.setAttribute("class","inp-tex");
+	input.setAttribute("id","line"+(lineNum+1));
+	
+	var a=document.createElement("a");
+	a.setAttribute("class","blue");
+	a.setAttribute("href","#none");
+	a.setAttribute("name",(lineNum+1));
+	a.setAttribute("onclick","Delline(this.name)");
+	var atxt=document.createTextNode(" 删除路线");
+	a.appendChild(atxt);
+	
+	para.appendChild(label);
+	para.appendChild(input);
+	para.appendChild(a);
+	
+	var element=document.getElementById("lines");
+	element.appendChild(para);
+	
+	lineNum++;
+	
+}
+
+function Delline(id)
+{
+	var delid = document.getElementById("div_line"+id).id;
+	
+	var parent=document.getElementById("lines");
+	var child=document.getElementById(delid);
+	parent.removeChild(child);
+	
+	lineNum--;
+	
+}
+
+function addGroup()
+{
+	
+	var obj = document.getElementById("p_1");
+	    obj.style.visibility="visible";
+	
+	     obj = document.getElementById("p_2");
+	    obj.style.visibility="visible";
+	    
+	     obj = document.getElementById("lines");
+	    obj.style.visibility="visible";
+	    
+	     obj = document.getElementById("p_4");
+	    obj.style.visibility="visible";
+	    
+	     obj = document.getElementById("p_5");
+	     obj.style.visibility="visible";
+	     
+	   
+	     
+}
+function onLoad()
+{
+	var obj = document.getElementById("p_1");
+    obj.style.visibility="hidden";
+
+     obj = document.getElementById("p_2");
+    obj.style.visibility="hidden";
+    
+     obj = document.getElementById("lines");
+    obj.style.visibility="hidden";
+    
+     obj = document.getElementById("p_4");
+    obj.style.visibility="hidden";
+    
+     obj = document.getElementById("p_5");
+     obj.style.visibility="hidden";
+}
+
+</script>
+
+<style>  
+#uploadImg{ font-size:12px; width:70px;height:30px;overflow:hidden; position:absolute}  
+#file{ position:absolute; z-index:100; margin-left:-4px;margin-right:-4px; width:70px;height:30px;font-size:20px;opacity:0;filter:alpha(opacity=0); margin-top:0px;}  
+#process{ margin-left:0px;margin-top:15px;}
+#submitImg{ margin-left:80px;margin-top:-1px;width:70px;height:30px;}
+#banner{margin-left:180px;}
+#addline{margin-left:180px;}
+#addGroup{margin-right:215px;}
+
+</style>
+
+</head >
+<body onload="onLoad();checkLogin();init_header();">
+<!-- 头部 【【-->
+<div class="header">
+  <div class="com-cent">
+    <div class="hd-title">微信 房产管理后台</div>
+    <div class="hd-log">欢迎你<span>亲爱的<em id="unm"></em>用户</span><a href="logout.php">退出</a></div>
+    <ul class="hd-link">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="property_manage.html">管理后台</a></li>
+      <li><a href="data.html">数据统计</a></li>
+    </ul>
+  </div>
+</div>
+<!-- 头部 】】-->
+<!-- 二级菜单【【 -->
+<div class="box-menu">
+  <div class="com-menu">
+    <ul class="menu">
+      <li><a href="property_manage.html">楼盘管理</a></li>
+      
+      
+      
+      <li class="curr" ><a href="house_manage.html" onmouseover="mopen('m4')" onmouseout="mclosetime()">看房团管理</a>
+      	<ul class="menu-xia" style="visibility:hidden;" id="m4" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="group_apply_users.html">看房团报名</a></li>
+        
+        </ul>
+      </li>
+      
+      <li><a href="#none" onmouseover="mopen('m1')" onmouseout="mclosetime()">楼盘印象管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="impression_inquiry.html">房友印象查询</a></li>
+          <li><a href="impression_set.html">房友印象设置</a></li>
+          <li><a href="review.html">专家点评管理</a></li>
+        </ul>
+      </li>
+      
+      <li><a href="order_li.html" onmouseover="mopen('m2')" onmouseout="mclosetime()">认筹管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m2" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="order_li.html">认筹列表</a></li>
+          <li><a href="order.html">认筹订单</a></li>
+        </ul>
+      </li>
+      <li><a href="photo_inquiry.html" onmouseover="mopen('m3')" onmouseout="mclosetime()">照片管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m3" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="photo_inquiry.html">照片查询</a></li>
+          <li><a href="photo_manage.html">照片管理</a></li>
+        </ul>
+      </li>
+      <li><a href="new.html">多页态</a></li>
+    </ul>
+  </div>
+</div>  
+<!-- 二级菜单 】】 -->
+<div class="cent-auto">
+    <!-- 看房团管理【【 -->
+    <div class="box-table"><!-- 添加hide隐藏 -->
+      <table width="760" border="0" cellspacing="1" cellpadding="0" bgcolor="#d7d7d7">
+        <tr>
+          <th>看房团名称</th>
+          <th>看房团ID编号</th>
+          <th>楼盘名称</th>
+          <th>看房时间</th>
+         
+         
+          <th>操作</th>
+        </tr>
+        <tbody id="group_list">
+        
+        </tbody>
+      </table>
+  
+    </div>
+    <!-- 看房团管理 】】 -->
+    <!-- 添加看房团【【 -->
+    <div class="but-righ ma-top"><button class="btn-cha" type="button" id="addGroup" onclick="addGroup()">添加看房团</button></div>
+   
+    <div class="com-min" id="p_1" >
+      <h3>标题设置</h3>
+      <form action="php/uploadfile.php" method="post" target="ifram_sign" enctype="multipart/form-data" >
+     
+       <img src="img/defaultbanner.jpg" id="banner" height="93" ></img><br><br>
+      <div class="tipe-lb">
+      
+      <label><span class="red">*</span>标题图片：</label>
+      <!--  <button class="btn-cha" type="button">上传标题图</button>-->
+      <input class="inp-tex inp-300" readonly name="" type="text" id="title_pic" />
+       
+     
+  		<input type="button" id="uploadImg" value="选择文件"></>
+      												<input class="inp-tex inp-300" name="picture" type="file" id="file" onChange="APPLY.OnUpload(this.value)"></>
+      												<input type="submit" id="submitImg" value="上传" />
+      												<span><img src="img/process.gif" id="process" style="visibility:hidden"></img></span>
+      												
+      												
+       </div>
+      
+        <iframe name="ifram_sign" id="ifram_sign" src="" height="0" width="0" style="display:none;" ></iframe>
+        
+      <div class="tipe-lb"><label><span class="red">*</span>标题文案：</label> 
+      <input class="inp-tex inp-300" name="" type="text" id="group_title" /></div>
+      <div class="tipe-lb"><label>期数：</label> 
+      <input class="inp-tex inp-300" name="" type="text" id="qishu" /></div>
+    </div>
+    <div class="com-min" id="p_2">
+      <h3>活动说明</h3>
+      <div class="tipe-lb"><label><span class="red">*</span>所属楼盘：</label>
+        <select size="1" class="li-hd" id="loupan_op">
+         
+        </select>
+      </div>
+      <div class="tipe-lb"><label>报名开始时间：</label> 
+        <span class="calendar-ctrl"><input type="text" maxlength="10" value="" readonly name="theDate" class="text-tips" id="apply_beg_date"><span class="ico-calendar" onclick="displayCalendar(document.forms[0].theDate,'yyyy-mm-dd',this)"><!-- 日历图标 --></span></span> 
+        <select size="1" class="li-hd" id="apply_beg_time">
+          <option>08:00:00</option>
+          <option>09:00:00</option>
+          <option>10:00:00</option>
+          <option>11:00:00</option>
+          <option>12:00:00</option>
+               <option>13:00:00</option>
+                <option>14:00:00</option>
+                 <option>15:00:00</option>
+                  <option>16:00:00</option>
+          <option>17:00:00</option>
+          <option>18:00:00</option>
+        </select>
+      </div>
+     
+      <div class="tipe-lb"><label>报名截止时间：</label> 
+        <span class="calendar-ctrl"><input type="text" maxlength="10" value="" readonly name="theDate2" class="text-tips" id="apply_end_date"><span class="ico-calendar" onclick="displayCalendar(document.forms[0].theDate2,'yyyy-mm-dd',this)"><!-- 日历图标 --></span></span> 
+        <select size="1" class="li-hd" id="apply_end_time">
+          <option>08:00:00</option>
+          <option>09:00:00</option>
+          <option>10:00:00</option>
+          <option>11:00:00</option>
+          <option>12:00:00</option>
+               <option>13:00:00</option>
+                <option>14:00:00</option>
+                 <option>15:00:00</option>
+                  <option>16:00:00</option>
+          <option>17:00:00</option>
+          <option>18:00:00</option>
+        </select>
+      </div>
+      <div class="tipe-lb"><label>看房截止时间：</label> 
+        <span class="calendar-ctrl"><input type="text" maxlength="10" value="" readonly name="theDate3" class="text-tips" id="view_end_date"><span class="ico-calendar" onclick="displayCalendar(document.forms[0].theDate3,'yyyy-mm-dd',this)"><!-- 日历图标 --></span></span> 
+        <select size="1" class="li-hd" id="view_end_time">
+          <option>08:00:00</option>
+          <option>09:00:00</option>
+          <option>10:00:00</option>
+          <option>11:00:00</option>
+          <option>12:00:00</option>
+               <option>13:00:00</option>
+                <option>14:00:00</option>
+                 <option>15:00:00</option>
+                  <option>16:00:00</option>
+          <option>17:00:00</option>
+          <option>18:00:00</option>
+        </select>
+      </div>
+       </form>
+      <div class="tipe-lb"><label>活动优惠：</label> <textarea class="text-kuang" name="" cols="" rows="" id="info_1">150个字以内</textarea></div>
+      <div class="tipe-lb"><label>看房须知：</label> <textarea class="text-kuang" name="" cols="" rows="" id="info_2">400个字以内</textarea></div>
+      <div class="tipe-lb"><label>看房声明：</label> <textarea class="text-kuang" name="" cols="" rows="" id="info_3">400个字以内</textarea></div>
+    </div>
+    <div id="lines" class="com-min" >
+      <h3>参团线路</h3>
+      <div class="tipe-lb"><label>线路名称：</label> <input class="inp-tex" name="" type="text" id="line1" /> 
+     
+      </div>
+     
+     
+     <!--  <div class="tipe-lb" ><label>说明：</label> <textarea class="text-kuang" name="" cols="" rows="" id="info_4">500个字以内</textarea></div>--> 
+    </div>
+      <div id="p_4" > <input name="" type="button" id="addline" value="添加线路" onclick="Addline()" /></div>
+      
+    <div class="com-min" id="p_5" >
+        <h3>操作</h3>
+        <input type="submit" id="apply_sumbit" class="btn-cha" value="确认添加" ></input>
+    	<input type="submit" id="apply_edit_sumbit" class="btn-cha" value="保存修改" ></input>
+   	    
+    </div>
+    
+    <!-- 添加看房团 】】-->
+</div>
+<script type="text/javascript" src="./js/share.js"></script>
+<script type="text/javascript" src="./js/common.js"></script>
+<script type="text/javascript" src="./js/comm.js"></script>
+<script language="javascript" src="./js/admin_house_manage.js" charset="utf-8"></script>
+</body>
+</html>
+<script language="javascript" src="js/xl.js" charset="utf-8"></script>

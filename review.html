@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>微信 房产管理后台</title>
+<link rel="stylesheet" href="css/styler.css" type="text/css" />
+<script language="javascript" src="http://112.124.55.78/wxfc/alldata.php" charset="utf-8"></script>
+
+
+<script language="javascript" charset="utf-8">
+
+
+function test(url)
+{
+	alert("上传成功");
+	 var obj = document.getElementById("expert_photo"); //selectid
+  	 obj.value=url;
+	 
+	// obj = document.getElementById("process");
+  	// obj.style.visibility="hidden";
+  	 
+  	 obj = document.getElementById("proimg");
+  	 obj.src=url;
+	 //
+}
+
+function addView()
+{
+	var obj = document.getElementById("hide_0");
+	obj.style.visibility="visible";
+	
+	obj = document.getElementById("hide_1");
+	obj.style.visibility="visible";
+	
+}
+</script>
+
+<style>  
+#uploadImg{ font-size:12px; width:70px;height:30px;overflow:hidden; position:absolute}  
+#file{ position:absolute; z-index:100; margin-left:-4px;margin-right:-4px; width:70px;height:30px;font-size:20px;opacity:0;filter:alpha(opacity=0); margin-top:0px;}  
+#process{ margin-left:0px;margin-top:15px;}
+#submitImg{ margin-left:80px;margin-top:-1px;width:70px;height:30px;}
+#proimg{  position:absolute;margin-top:-130px;margin-left:-85px;}
+#addView{margin-right:215px;}
+</style>
+
+</head>
+<body onload="checkLogin();init_header();">
+
+<!-- 头部 【【-->
+<div class="header">
+  <div class="com-cent">
+    <div class="hd-title">微信 房产管理后台</div>
+    <div class="hd-log">欢迎你<span>亲爱的<em id="unm"></em>用户</span><a href="logout.php">退出</a></div>
+    <ul class="hd-link">
+      <li><a href="index.html">首页</a></li>
+      <li class="curr"><a href="property_manage.html">管理后台</a></li>
+      <li><a href="data.html">数据统计</a></li>
+    </ul>
+  </div>
+</div>
+<!-- 头部 】】-->
+<!-- 二级菜单【【 -->
+<div class="box-menu">
+  <div class="com-menu">
+    <ul class="menu">
+      <li><a href="property_manage.html">楼盘管理</a></li>
+      <li><a href="house_manage.html">看房团管理</a></li>
+      <li class="curr"><a href="#none" onmouseover="mopen('m1')" onmouseout="mclosetime()">楼盘印象管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="impression_inquiry.html">房友印象查询</a></li>
+          <li><a href="impression_set.html">房友印象设置</a></li>
+          <li><a href="review.html">专家点评管理</a></li>
+        </ul>
+      </li>
+      <li><a href="order_li.html" onmouseover="mopen('m2')" onmouseout="mclosetime()">认筹管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m2" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="order_li.html">认筹列表</a></li>
+          <li><a href="order.html">认筹订单</a></li>
+        </ul>
+      </li>
+      <li><a href="photo_inquiry.html" onmouseover="mopen('m3')" onmouseout="mclosetime()">照片管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m3" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="photo_inquiry.html">照片查询</a></li>
+          <li><a href="photo_manage.html">照片管理</a></li>
+        </ul>
+      </li>
+      <li><a href="new.html">多页态</a></li>
+    </ul>
+  </div>
+</div>  
+<!-- 二级菜单 】】 -->
+<div class="cent-auto">
+    <!-- 专家点评查询【【 -->
+    <div class="com-min">
+      <h3>专家点评查询</h3>
+      <div class="order-lb"><label>楼盘名称：</label> 
+        <select size="1" class="li-hd" id="listloupan_op">
+          
+        </select>
+        <input type="submit" class="btn-cha" value="查询专家点评" id="sbt_query"></input>
+      </div>
+    </div>  
+   
+    <!-- 查询列表【【 -->
+    <div class="box-table"><!-- 添加hide隐藏 -->
+      <table width="760" border="0" cellspacing="1" cellpadding="0" bgcolor="#d7d7d7">
+        <tr>
+          <th>专家姓名</th>
+          <th>专家Title</th>
+          <th>评论时间</th>
+          <th>状态</th>
+          <th>操作</th>
+        </tr>
+        
+        <tbody id="review_list">
+        
+        </tbody>
+      </table>
+      
+    </div>
+     <div class="but-righ ma-top"><button class="btn-cha" type="button" id="addView" onclick="addView()">添加专家点评</button></div>
+    <!-- 查询列表 】】-->
+    <!-- 专家点评查询 】】-->
+    <!-- 添加看房团【【 -->
+    <div class="com-min" id="hide_0" style="visibility:hidden">
+      <h3>添加点评</h3>
+    
+      <form action="php/uploadfile.php" method="post" target="ifram_sign" enctype="multipart/form-data" >
+     
+      <div class="tipe-lb">
+      
+      <label>专家头像：</label>
+      <input class="inp-tex inp-300" readonly name="" type="text" id="expert_photo"></input>
+      <input type="button" id="uploadImg" value="选择文件"></>
+      												<input class="inp-tex inp-300" name="picture" type="file" id="file" onChange="APPLY.OnUpload(this.value)"></>
+      												<input type="submit" id="submitImg" value="上传" />
+      </div>
+     
+      </form>
+  		 <iframe name="ifram_sign" id="ifram_sign" src="" height="0" width="0" style="display:none;" ></iframe>
+      <div class="tipe-lb"><label>专家名字：</label> <input class="inp-tex inp-300" name="" type="text" id="expert_name"/>
+      </div>
+      <div class="tipe-lb"><label>专家头街：</label> 
+        <input class="inp-tex inp-300" name="" type="text" id="expert_title"/>(10个字以内)</div>
+      <div class="tipe-lb"><label>专家介绍：</label>
+        <textarea class="text-kuang" name="" cols="" rows="" id="expert_intro"> 100个字以内</textarea>
+      <span ><img id="proimg" src="" width="70" height="70"  border="2" /></span>      </div>
+      <div class="tipe-lb"><label>点评标语：</label> <input class="inp-tex inp-300" name="" type="text" id="expert_reviewTitle" />(15个字以内)</div>
+      <div class="tipe-lb"><label>点评内容：</label> <textarea class="text-kuang" name="" cols="" rows="" id="expert_reviewDesc">100个字以内</textarea></div>
+  </div>
+    <div class="cent-bott" id="hide_1" style="visibility:hidden">
+    <input type="submit"  class="btn-cha" value="添加新点评" id="sbt_add"></input> 
+     <input type="submit" class="btn-cha" value="保存修改" id="sbt_save_edit"></input> 
+    </div>
+    <!-- 添加看房团 】】-->
+</div>
+<script type="text/javascript" src="./js/share.js"></script>
+<script type="text/javascript" src="./js/common.js"></script>
+<script type="text/javascript" src="./js/comm.js"></script>
+<script language="javascript" src="./js/admin_review.js" charset="utf-8"></script>
+</body>
+</html>
+<script language="javascript" src="js/xl.js" charset="utf-8"></script>

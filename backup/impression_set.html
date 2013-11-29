@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>微信 房产管理后台</title>
+<link rel="stylesheet" href="css/styler.css" type="text/css" />
+</head>
+<body>
+<!-- 头部 【【-->
+<div class="header">
+  <div class="com-cent">
+    <div class="hd-title">微信 房产管理后台</div>
+    <div class="hd-log">欢迎你<span>亲爱的<em>xxx</em>用户</span><a href="#none">退出</a></div>
+    <ul class="hd-link">
+      <li><a href="index.html">首页</a></li>
+      <li class="curr"><a href="property_manage.html">管理后台</a></li>
+      <li><a href="data.html">数据统计</a></li>
+    </ul>
+  </div>
+</div>
+<!-- 头部 】】-->
+<!-- 二级菜单【【 -->
+<div class="box-menu">
+  <div class="com-menu">
+    <ul class="menu">
+      <li><a href="property_manage.html">楼盘管理</a></li>
+      <li><a href="house_manage.html">看房团管理</a></li>
+      <li class="curr"><a href="#none" onmouseover="mopen('m1')" onmouseout="mclosetime()">楼盘印象管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="impression_inquiry.html">房友印象查询</a></li>
+          <li><a href="impression_set.html">房友印象设置</a></li>
+          <li><a href="review.html">专家点评管理</a></li>
+        </ul>
+      </li>
+      <li><a href="order_li.html" onmouseover="mopen('m2')" onmouseout="mclosetime()">认筹管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m2" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="order_li.html">认筹列表</a></li>
+          <li><a href="order.html">认筹订单</a></li>
+        </ul>
+      </li>
+      <li><a href="photo_inquiry.html" onmouseover="mopen('m3')" onmouseout="mclosetime()">照片管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m3" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="photo_inquiry.html">照片查询</a></li>
+          <li><a href="photo_manage.html">照片管理</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>  
+<!-- 二级菜单 】】 -->
+<div class="cent-auto">
+    <!-- 房友印象管理【【 -->
+    <div class="com-min">
+      <h3>房友印象管理</h3>
+      <div class="order-lb"><label>楼盘名称：</label>
+        <select size="1" class="li-hd">
+          <option>请选择楼盘</option>
+          <option>三个傻瓜</option>
+        </select>
+        <button class="btn-cha" type="button">添加新房友印象</button>
+      </div>
+  </div>
+  <!-- 查询列表【【 -->
+    <div class="box-table"><!-- 添加hide隐藏 -->
+      <table width="760" border="0" cellspacing="1" cellpadding="0" bgcolor="#d7d7d7">
+        <tr>
+          <th>楼盘ID</th>
+          <th>楼盘名称</th>
+          <th>提交时间</th>
+          <th>状态</th>
+          <th>操作</th>
+        </tr>
+        <tr>
+          <td>手法手法手法手法</td>
+          <td>手法手法手法手法</td>
+          <td>2013-11-03</td>
+          <td>待审核</td>
+          <td><a class="blue" href="#none">编辑</a> <a class="blue" href="#none">删除</a></td>
+        </tr>
+      </table>
+    </div>
+    <!-- 查询列表 】】-->
+  <!-- 房友印象管理 】】-->
+  <!-- 添加新房友印象 】】-->
+  <div class="com-min">
+    <h3>增加楼房印象</h3>
+    <div class="order-lb"><label>所属楼盘：</label>
+      <select size="1" class="li-hd">
+        <option>请选择楼盘</option>
+        <option>三个傻瓜</option>
+      </select>
+    </div>
+    <div class="order-lb"><label>初始总人数：</label> <input class="inp-tex inp-100" name="" type="text" /></div>
+    <div class="order-lb"><label>印象一：</label> <input class="inp-tex inp-100" name="" type="text" value="印象描述，四个字以内" /> <input class="inp-tex inp-100" name="" type="text" value="印象比例：20%" /></div>
+    <div class="order-lb"><label>印象二：</label> <input class="inp-tex inp-100" name="" type="text" value="印象描述，四个字以内" /> <input class="inp-tex inp-100" name="" type="text" value="印象比例：20%" /></div>
+    <div class="order-lb"><label>印象三：</label> <input class="inp-tex inp-100" name="" type="text" value="印象描述，四个字以内" /> <input class="inp-tex inp-100" name="" type="text" value="印象比例：20%" /></div>
+    <div class="order-lb"><label>印象四：</label> <input class="inp-tex inp-100" name="" type="text" value="印象描述，四个字以内" /> <input class="inp-tex inp-100" name="" type="text" value="印象比例：20%" /></div>
+    <div class="order-lb"><label>印象五：</label> <input class="inp-tex inp-100" name="" type="text" value="印象描述，四个字以内" /> <input class="inp-tex inp-100" name="" type="text" value="印象比例：20%" /></div>
+    <div class="order-lb"><label>印象六：</label> <input class="inp-tex inp-100" name="" type="text" value="印象描述，四个字以内" /> <input class="inp-tex inp-100" name="" type="text" value="印象比例：20%" /></div>
+    <div class="cent-bott"><button class="btn-cha" type="button">完成</button> <button class="btn-cha" type="button">取消</button></div>
+    <div class="com-tu">效果图显示</div>
+  </div>
+  <!-- 添加新房友印象 】】-->
+</div>
+</body>
+</html>
+<script language="javascript" src="js/xl.js" charset="utf-8"></script>

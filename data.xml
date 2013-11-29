@@ -1,0 +1,39 @@
+<anychart>
+	<settings>
+		<animation enabled="True"/>
+	</settings>
+  <charts>
+    <chart plot_type="CategorizedVertical">
+    	<chart_settings>
+    		<title>
+    			<text>关注用户数：</text>
+    			<background enabled="false"/>
+    		</title>
+    		<axes>
+    			<x_axis tickmarks_placement="Center">
+    				<labels display_mode="Stager"/>
+    			</x_axis>
+    		</axes>
+    	</chart_settings>
+    	<data_plot_settings default_series_type="Spline">
+    		<line_series>
+    			<tooltip_settings enabled="true">
+<format>
+Series: {%SeriesName}
+Point Name: {%Name}
+Value: {%YValue}
+</format>
+    			</tooltip_settings>
+    			<line_style>
+    				<line thickness="3"/>
+	    		</line_style>
+    		</line_series>
+    	</data_plot_settings>
+	    <data>
+			<series name="人数">
+				<!--DATA-->
+			</series>
+	    </data>
+    </chart>
+  </charts>
+</anychart>

@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>微信 房产管理后台</title>
+<link rel="stylesheet" href="css/styler.css" type="text/css" />
+</head>
+<body>
+<!-- 头部 【【-->
+<div class="header">
+  <div class="com-cent">
+    <div class="hd-title">微信 房产管理后台</div>
+    <div class="hd-log">欢迎你<span>亲爱的<em id="unm"></em>用户</span><a href="logout.php">退出</a></div>
+    <ul class="hd-link">
+      <li><a href="index.html">首页</a></li>
+      <li class="curr"><a href="property_manage.html">管理后台</a></li>
+      <li><a href="data.html">数据统计</a></li>
+    </ul>
+  </div>
+</div>
+<!-- 头部 】】-->
+<!-- 二级菜单【【 -->
+<div class="box-menu">
+  <div class="com-menu">
+    <ul class="menu">
+      <li class="curr"><a href="property_manage.html" onmouseover="mopen('m5')" onmouseout="mclosetime()">楼盘管理</a>
+		<ul class="menu-xia" style="visibility:hidden;" id="m5" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="admin_rooms.html">户型管理</a></li>
+        
+        </ul>
+	  </li>
+      <li><a href="house_manage.html" onmouseover="mopen('m4')" onmouseout="mclosetime()">看房团管理</a>
+		<ul class="menu-xia" style="visibility:hidden;" id="m4" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="group_apply_users.html">看房团报名</a></li>
+        
+        </ul>
+	  </li>
+	  
+      <li><a href="#none" onmouseover="mopen('m1')" onmouseout="mclosetime()">楼盘印象管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="impression_inquiry.html">房友印象查询</a></li>
+          <li><a href="impression_set.html">房友印象设置</a></li>
+          <li><a href="review.html">专家点评管理</a></li>
+        </ul>
+      </li>
+	  
+      <li><a href="#none" onmouseover="mopen('m2')" onmouseout="mclosetime()">认筹管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m2" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="order_li.html">认筹列表</a></li>
+          <li><a href="order.html">认筹订单</a></li>
+        </ul>
+      </li>
+      <li><a href="photo_inquiry.html" onmouseover="mopen('m3')" onmouseout="mclosetime()">照片管理</a>
+        <ul class="menu-xia" style="visibility:hidden;" id="m3" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+          <li><a href="photo_inquiry.html">照片查询</a></li>
+          <li><a href="photo_manage.html">照片管理</a></li>
+        </ul>
+      </li>
+      <li><a href="new.html">多页态</a></li>
+    </ul>
+  </div>
+</div>  
+<!-- 二级菜单 】】 -->
+    <div class="cent-auto" id="bbb">
+        <!-- 楼盘管理表单【【 -->
+        <div class="box-table" id="lp_list"><!-- 添加hide隐藏 -->
+          <table width="760" border="0" cellspacing="1" cellpadding="0" bgcolor="#d7d7d7" id="lp_list_tbl">
+          </table>
+          <div class="but-righ ma-top"><button class="btn-cha" type="button" onclick="javascript:add_lp();">添加新楼盘</button></div>
+        </div>
+        <!-- 楼盘管理表单 】】 -->
+        <!-- 添加新楼盘 】】 -->
+        <div id="lpdy"></div>
+        <form method="post" id="fm" target="forsubmit" >
+        <div class="com-min" id="lp_xx">
+          <h3>楼盘信息</h3>
+          <div class="tipe-lb"><label><span class="red">*</span>楼盘名称：</label> <input class="inp-tex inp-300" id="v_1" name="v_1" type="text" /></div>
+          <div class="tipe-lb"><label><span class="red">*</span>微信帐号：</label> <input class="inp-tex inp-300" id="v_2" name="v_2" type="text" /></div>
+          <div class="tipe-lb"><label><span class="red">*</span>APP ID：</label> <input class="inp-tex inp-300" id="v_3" name="v_3" type="text" /></div>
+          <div class="tipe-lb"><label><span class="red">*</span>APP KEY：</label> <input class="inp-tex inp-300" id="v_4" name="v_4" type="text" /></div>
+        </div>
+        <div class="com-min" id="lp_js">
+          <h3>楼盘简介</h3>
+			<div class="tipe-lb"><label>正文：</label> <textarea class="text-kuang" id="v_32" name="v_32" cols="" rows="" ></textarea></div>
+            <!--div class="tipe-lb"><label><span class="red">*</span>首期开盘：</label> <input class="inp-tex inp-300" id="v_5" name="v_5" type="text" /></div>
+            <div class="tipe-lb"><label><span class="red">*</span>项目定位：</label> <input class="inp-tex inp-300" id="v_6" name="v_6" type="text" /></div>
+            <div class="tipe-lb"><label><span class="red">*</span>楼盘特色：</label> <input class="inp-tex inp-300" id="v_7" name="v_7" type="text" /></div>
+            <div class="tipe-lb"><label><span class="red">*</span>装修状况：</label> <input class="inp-tex inp-300" id="v_8" name="v_8" type="text" /></div>
+            <div class="tipe-lb"><label><span class="red">*</span>首期入住：</label> <input class="inp-tex inp-300" id="v_9" name="v_9" type="text" /></div>
+            <div class="tipe-lb"><label><span class="red">*</span>总占地面积：</label> <input class="inp-tex inp-300" id="v_10" name="v_10" type="text" /></div>
+            <div class="tipe-lb"><label><span class="red">*</span>绿化率：</label> <input class="inp-tex inp-300" id="v_11" name="v_11" type="text" /></div>
+            <div class="tipe-lb"><label><span class="red">*</span>总户数：</label> <input class="inp-tex inp-300" id="v_12" name="v_12" type="text" /></div>
+            <div class="tipe-lb"><label><span class="red">*</span>产权：</label> <input class="inp-tex inp-300" id="v_13" name="v_13" type="text" /></div>
+            <div class="tipe-lb"><label><span class="red">*</span>物业公司：</label> <input class="inp-tex inp-300" id="v_14" name="v_14" type="text" /></div>
+            <div class="tipe-lb"><label><span class="red">*</span>开发商：</label> <input class="inp-tex inp-300" id="v_15" name="v_15" type="text" /></div>
+            <div class="tipe-lb"><label><span class="red">*</span>销售许可证：</label> <input class="inp-tex inp-300" id="v_16" name="v_16" type="text" /></div>
+            <div class="tipe-lb"><label><span class="red">*</span>销售电话：</label> <input class="inp-tex inp-300" id="v_17" name="v_17" type="text" /></div-->
+        </div>
+        <div class="com-min" id="lp_map">
+          <h3>地图</h3>
+            <div class="tipe-lb"><label>地址：</label> <input class="inp-tex inp-300" id="v_18" name="v_18" type="text" /></div>
+            <div class="tipe-lb"><label>经度：</label> <input class="inp-tex inp-300" id="v_19" name="v_19" type="text" /></div>
+            <div class="tipe-lb"><label>纬度：</label> <input class="inp-tex inp-300" id="v_20" name="v_20" type="text" /></div>
+            <div class="tipe-lb hide"><label>缩放：</label> <input class="inp-tex inp-300" id="v_21" name="v_21" type="text" value="14" readonly="readonly" /></div>
+            <div class="cent-bott"><button class="btn-cha" type="button" onclick="window.open('http://api.map.soso.com/doc_v2/tooles/picker.html','_blank' );">获取坐标</button></div>
+        </div>
+        <div class="com-min" id="lp_sp" >
+          <h3>视频</h3>
+          <div class="tipe-lb"><label>视频名称：</label> <input class="inp-tex inp-300" id="v_22" name="v_22" type="text" /></div>
+          <div class="tipe-lb"><label>视频链接：</label> <input class="inp-tex inp-300" id="v_23" name="v_23" type="text" /></div>
+          <div class="cent-bott"><button class="btn-cha" type="button" onclick="window.open('http://v.qq.com/boke/upload.html','_blank' );">添加视频</button></div>
+        </div>
+        <div class="com-min" id="lp_jj">
+          <h3>项目简介</h3>
+          <div class="tipe-lb"><label>正文：</label> <textarea class="text-kuang" id="v_24" name="v_24" cols="" rows="" >123456</textarea></div>
+        </div>
+        <div class="com-min" id="lp_zb">
+          <h3>周边交通</h3>
+          <div class="tipe-lb"><label>正文：</label> <textarea class="text-kuang" id="v_25" name="v_25" cols="" rows=""></textarea></div>
+        </div>
+        </form>
+        <div id="hxdt"></div>
+        <div class="com-min" id="lp_hx">
+            <h3>户型介绍</h3>
+            <div class="box-table" id="hx"></div>
+        </div>
+        <div id="hximg"></div>
+        
+        <div class="com-min" id="lp_tj">
+        	<h3>提交</h3>
+            <div class="tipe-lb"><label>.</label> <button class="btn-cha" type="button" onclick="do_commit()";>提交审核</button> </div> 
+        </div>
+	</div>
+    <iframe name="forsubmit" id="ifram_sign" src="" height="0" width="0" style="display:none;" ></iframe>
+</body>
+</html>
+<script language="javascript" src="js/xl.js" charset="utf-8"></script>
+<script language="javascript" src="js/comm.js" charset="utf-8"></script>
+<script language="javascript" src="alldata.php" charset="utf-8"></script>
+<script language="javascript" src="js/jquery-2.0.3.js"></script>
+<script language="javascript" src="js/json.js"></script>
+<script language="javascript" >
+
+var g_cur_id = 0;
+
+function init_lplist()
+{
+	var e = document.getElementById("lp_list_tbl");
+	var s = '<tr><th>楼盘名称</th><th>楼盘ID</th><th>提交时间</th><th>状态</th><th>操作</th></tr>';
+	for ( var i=0; i<g_data.length; i++ )
+	{
+		var one = g_data[i];
+		s += ( '<tr><td>' + one[1] + '</td><td>' + one[0] + '</td><td>'  + one[2] + '</td><td>'  + one[3] + '<td><a class="blue" href="javascript:edit_lp(\'' + one[0] + '\');">编辑</a> <a class="blue" href="javascript:del_lp(\'' + one[0] + '\');">删除</a></td></tr>' );
+	};
+	e.innerHTML = s;
+}
+
+function showedit()
+{
+	//document.getElementById("bbb").className = "cent-auto";
+	document.getElementById("lp_xx").className = "com-min";
+	document.getElementById("lp_js").className = "com-min";
+	document.getElementById("lp_jj").className = "com-min";
+	document.getElementById("lp_map").className = "com-min";
+	document.getElementById("lp_hx").className = "com-min";
+	document.getElementById("lp_sp").className = "com-min";
+	document.getElementById("lp_zb").className = "com-min";
+	document.getElementById("lp_tj").className = "com-min";
+}
+
+function hideedit()
+{
+	//document.getElementById("bbb").className = "cent-auto  hide";
+	document.getElementById("lp_xx").className = "com-min hide";
+	document.getElementById("lp_js").className = "com-min hide";
+	document.getElementById("lp_jj").className = "com-min hide";
+	document.getElementById("lp_map").className = "com-min hide";
+	document.getElementById("lp_hx").className = "com-min hide";
+	document.getElementById("lp_sp").className = "com-min hide";
+	document.getElementById("lp_zb").className = "com-min hide";
+	document.getElementById("lp_tj").className = "com-min hide";
+}
+
+function getBuildingById( id )
+{
+	for ( var i=0; i<g_data.length; i++ )
+	{
+		var d = g_data[i];
+		if ( id != d[0] )
+		{
+			return d;
+		}
+	}
+	return [];
+}
+
+function edit_lp( lpid )
+{
+	g_cur_id = lpid;
+	
+	var e = document.getElementById("fm");
+	e.action = ( "commit_loupan.php?opt=set&id=" + g_cur_id );
+	
+	showedit();
+	
+	for ( var i=0; i<g_data.length; i++ )
+	{
+		var d = g_data[i];
+		if ( lpid != d[0] )
+		{
+			continue;
+		}
+		
+		$("#v_1").attr("value", d[1] );
+		$("#v_2").attr("value", d[4] );
+		$("#v_3").attr("value", d[5] );
+		$("#v_4").attr("value", d[6] );
+/*		$("#v_5").attr("value", d[7] );
+		$("#v_6").attr("value", d[8] );
+		$("#v_7").attr("value", d[9] );
+		$("#v_8").attr("value", d[10] );
+		$("#v_9").attr("value", d[11] );
+		$("#v_10").attr("value", d[12] );
+		$("#v_11").attr("value", d[13] );
+		$("#v_12").attr("value", d[14] );
+		$("#v_13").attr("value", d[15] );
+		$("#v_14").attr("value", d[16] );
+		$("#v_15").attr("value", d[17] );
+*/
+		$("#v_16").attr("value", d[18] );
+		$("#v_17").attr("value", d[19] );
+		$("#v_18").attr("value", d[20] );
+		$("#v_19").attr("value", d[21] );
+		$("#v_20").attr("value", d[22] );
+		$("#v_21").attr("value", d[23] );
+		$("#v_22").attr("value", d[24] );
+		$("#v_23").attr("value", d[25] );
+		$("#v_24").html( d[26] );
+		$("#v_25").html( d[27] );
+		$("#v_31").html( d[28] );
+		$("#v_32").html( d[29] );
+		break;
+	}
+	
+	crreate_lpdy();
+	create_hxlist();
+}
+
+function add_lp()
+{
+	g_cur_id = 0;
+	
+	var e = document.getElementById("fm");
+	e.action = ( "commit_loupan.php?opt=add&id=" + g_cur_id );
+	
+	showedit();
+}
+
+function do_commit()
+{
+	var o = $("#v_23");
+	o.val( getQQVidByUrl( o.val() ) );
+
+	var e = document.getElementById("fm");
+	e.submit();
+	
+	create_hxlist();
+}
+
+function del_lp( lpid )
+{
+	g_cur_id = lpid;
+	
+	var e = document.getElementById("fm");
+	e.action = ( "commit_loupan.php?opt=del&id=" + g_cur_id );
+	
+	do_commit();
+}
+
+function create_hxlist()
+{	
+	// 先清空图片
+	var e = document.getElementById("hximg");
+	e.innerHTML = "";
+	
+	// 户型顶图
+	create_img_upload( "hxdt", "../building/" +g_cur_id+ "/img/hx/banner.jpg", "户型图顶页" );
+	e = document.getElementById("hx");
+
+	var s = (
+		'<form target="forsubmit" id="fm_hxc" method="post" action="">'
+		+ '<table width="760" border="0" cellspacing="1" cellpadding="0" bgcolor="#d7d7d7" >'
+		+ '<tr><th>户型ID</th><th>楼盘ID</th><th>户型名</th><th>类型</th><th>操作</th></tr>'
+	);
+
+	for ( var i=1; i<g_hx.length; i++ )
+	{	
+		var o = g_hx[i];
+		
+		if ( g_cur_id != o[1] )
+		{
+			continue;
+		}
+		
+		s = ( s
+		+ '<tr><td>' + o[0] + '</td><td>' + o[1] + '</td><td>' + o[2] + '</td><td>' + o[3] + '</td><td><input type="button" value="修改" onclick="create_hxcontent(' + o[0] + ');" /><input type="button" value="删除" onclick="del_hxlist(' + o[0] + ');" /> </td></tr>'
+		);
+	}
+
+	s = ( s
+		+ '<tr><td colspan="5" ><input class="inp-tex inp-300" name="" type="button" value="添加新户型" onclick="create_hxcontent(0);" /></td></tr></table></form>>'
+	);
+	
+	e.innerHTML = s;
+}
+
+function add_newhximg(bid,hid)
+{
+	var e = document.getElementById("hximg_newnm");
+	if ( "" == e.value )
+	{
+		alert( "请输入户型图片名称" );
+		return;
+	}
+	
+	for ( var i=0; i<g_hx.length; i++ )
+	{
+		var o = g_hx[i];
+		if ( o[0] == hid && g_cur_id == bid )
+		{
+			var oj = o[9].parseJSON();
+			var newoj = {};
+			newoj.id = oj.mid;
+			newoj.name = e.value;
+			oj.mid++;
+			oj.data.push(newoj);
+			
+			o[9] = oj.toJSONString();
+			break;
+		}
+	}
+	
+	create_hxcontent(hid);
+}
+
+function create_hximg( v, bid, hid )
+{
+	var o = v.parseJSON();
+	
+	var s = img_upload_html( '../building/' + bid + '/img/hx/' + hid + '/hx.jpg', "户型图" );
+
+	s += '<div class="com-min"><h3>添加新户型图片</h3><div class="tipe-lb"><label><span class="red">*</span>新户型图片名：</label> <input class="inp-tex inp-300" id="hximg_newnm" value="" /><input type="button" value="添加" onclick="add_newhximg('+bid+','+hid+')" ></div></div>';
+	
+	for ( var i=0; i<o.data.length; i++ )
+	{
+		var oo = o.data[i];
+		var path = '../building/' + bid + '/img/hx/' + hid + '/' + oo.id + '.jpg';
+		var name = oo.name;
+		s += img_upload_html( path, name );
+	}
+	
+	var e = document.getElementById("hximg");
+	e.innerHTML = s;
+}
+
+function create_hxcontent(id)
+{
+	if ( 0 == g_cur_id )
+	{
+		alert("请先提交楼盘信息，再来设置户型。");
+		return;
+	}
+
+	if ( 0 == id )
+	{
+		g_hx.push( g_hx[0] );
+		g_hx[g_hx.length-1][1] = g_cur_id;
+	}
+
+	var e = document.getElementById("hx");
+	var s = '<form target="forsubmit" id="fm_hxc" method="post" action="commit_hxc.php?id=' + id + '&opt=' + (0==id?"add":"set") + '&bid=' + g_cur_id + '">';
+	for ( var i=0; i<g_hx.length; i++ )
+	{
+		var o = g_hx[i];
+		if ( o[0] == id && g_cur_id == o[1] )
+		{
+			s = ( s + '<div class="tipe-lb"><label>户型名：</label><input name="v1" value="' + o[2] + '"/></div>' );
+			s = ( s + '<div class="tipe-lb"><label>户型分类：</label><input name="v2" value="' + o[3] + '"/></div>' );
+			s = ( s + '<div class="tipe-lb"><label>几房几厅：</label><input name="v3" value="' + o[4] + '"/></div>' );
+			s = ( s + '<div class="tipe-lb"><label>楼层：</label><input name="v4" value="' + o[5] + '"/></div>' );
+			s = ( s + '<div class="tipe-lb"><label>建筑面积：</label><input name="v5" id="v5" value="' + o[6] + '"/></div>' );
+			s = ( s + '<div class="tipe-lb"><label>套内面积：</label><input name="v9" id="v9" value="' + o[10] + '"/></div>' );
+			s = ( s + '<div class="tipe-lb hide"><label>详情头：</label><textarea class="text-kuang2" name="v6" id="v6"></textarea></div>' );
+			s = ( s + '<div class="tipe-lb"><label>详细信息：</label><textarea class="text-kuang2" name="v7">' + o[8] + '</textarea></div>' );
+			s = ( s + '<div class="tipe-lb hide"><label>图片数据：</label><textarea class="text-kuang2" name="v8" readonly="true">' + o[9] + '</textarea></div>' );
+			s = ( s + '<div class="cent-bott"><button class="btn-cha" type="button" onclick="commit_hx(' + id + ');">提交审核</button><button class="btn-cha" type="button" onclick="create_hxlist();">返回列表</button></div>' );
+
+			create_hximg( o[9], g_cur_id, id );
+			break;
+		}
+	}
+	
+	s = ( s
+ 		+ '</table></form>'
+	);
+	
+	e.innerHTML = s;
+}
+
+function crreate_lpdy()
+{
+	var e = document.getElementById("lpdy");
+	e.innerHTML = img_upload_html( '../building/' + g_cur_id + '/img/banner.jpg', "楼盘详情顶图" );
+}
+
+function del_hxlist( id )
+{	
+	var e = document.getElementById("fm_hxc");
+	e.action = "commit_hxc.php?id=" + id + "&opt=del&bid=" + g_cur_id;
+	e.submit();
+}
+
+function commit_hx( id )
+{
+	var s = "建筑面积：" + $("#v5").val() + "平米<br>套内面积：约" + $("#v9").val() + "平米";
+	$("#v6").html( s );
+	
+	var e = document.getElementById("fm_hxc");
+	e.submit();
+	create_hxlist();
+}
+
+checkLogin();
+init_header();
+init_lplist();
+hideedit();
+
+</script>

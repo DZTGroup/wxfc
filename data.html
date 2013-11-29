@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>微信 房产管理后台</title>
+<link rel="stylesheet" href="css/styler.css" type="text/css" />
+<script type="text/javascript" src="js/dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118" charset="utf-8"></script>
+<link type="text/css" rel="stylesheet" href="js/dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen"></LINK>
+</head>
+<body>
+<!-- 头部 【【-->
+<div class="header">
+  <div class="com-cent">
+    <div class="hd-title">微信 房产管理后台</div>
+    <div class="hd-log">欢迎你<span>亲爱的<em id="unm"></em>用户</span><a href="logout.php">退出</a></div>
+    <ul class="hd-link">
+      <li><a href="index.html">首页</a></li>
+	    <li><a href="property_manage.html">管理后台</a></li>
+	    <li class="curr"><a href="data.html">数据统计</a></li>
+    </ul>
+  </div>
+</div>
+<!-- 头部 】】-->
+<div class="cent-auto">
+  <div class="cent-data">
+    <h3>页面统计</h3>
+    <div class="com-rq">
+      <form target="forsubmit" method="get" id="fm1" action="data.php">
+      <div class="order-lb"><label>楼盘名称：</label>
+        <select size="1" class="li-hd" id="lp_sel" name="bid">
+        </select>
+      </div>
+      <span class="calendar-ctrl"><input type="text" maxlength="10" value="选择日期" name="t1" id="t1" class="text-tips"><span class="ico-calendar" onclick="displayCalendar(document.getElementById('t1'),'yyyy-mm-dd',this)"><!-- 日历图标 --></span></span> 到
+      <span class="calendar-ctrl"><input type="text" maxlength="10" value="选择日期" name="t2" id="t2" class="text-tips"><span class="ico-calendar" onclick="displayCalendar(document.getElementById('t2'),'yyyy-mm-dd',this)"><!-- 日历图标 --></span></span>
+      <button class="btn-cha" type="button" onclick="document.getElementById('fm1').submit();">查询</button>
+      </form>
+    </div>
+    <!--  页面统计表单【【 -->
+    <div class="box-table" id="tb1">
+    </div>
+    <!--  页面统计表单 】】 -->
+  </div>
+</div>
+<iframe name="forsubmit" id="ifram_sign" src="" height="0" width="0" style="display:none;" ></iframe>
+</body>
+</html>
+<script language="javascript" src="js/xl.js" charset="utf-8"></script>
+<script language="javascript" src="js/comm.js" charset="utf-8"></script>
+<script language="javascript" src="alldata.php" charset="utf-8"></script>
+<script language="javascript" src="js/jquery-2.0.3.js"></script>
+<script language="javascript" src="js/json.js"></script>
+<script language="javascript" >
+
+function create_tj( arr )
+{
+	var s = 
+     '<table width="760" border="0" cellspacing="1" cellpadding="0" bgcolor="#d7d7d7">'
+		+ '<tr>'
+        +  '<th>页面</th>'
+		+  '<th>日期</th>'
+        +  '<th>访问次数</th>'
+        +'</tr>';
+
+	for ( var i=0; i<arr.length; i++ )
+	{
+		s = s
+        + '<tr>'
+        +  '<td>' + arr[i][0] + '</td>'
+        +  '<td>' + arr[i][1] + '</td>'
+        +  '<td>' + arr[i][2] + '</td>'
+        +'</tr>';
+	}
+	s += '</table>';
+	
+	$("#tb1").html( s );
+}
+
+checkLogin();
+init_header();
+init_lp_select();
+
+</script>
