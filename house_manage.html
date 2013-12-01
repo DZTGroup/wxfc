@@ -6,11 +6,9 @@
     <title>微信 房产管理后台</title>
     <link rel="stylesheet" href="css/styler.css" type="text/css"/>
     <script language="javascript" src="http://112.124.55.78/wxfc/alldata.php" charset="utf-8"></script>
-    <script type="text/javascript" src="js/dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118"
-            charset="utf-8"></script>
-    <link type="text/css" rel="stylesheet" href="js/dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112"
-          media="screen"></LINK>
-    <script language="javascript" charset="utf-8">
+    <script type="text/javascript" src="js/dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118"></script>
+    <link type="text/css" rel="stylesheet" href="js/dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen">
+    <script>
         function test(url) {
             alert("上传成功");
             var obj = document.getElementById("title_pic"); //selectid
@@ -71,39 +69,11 @@
         }
 
         function addGroup() {
-
-            var obj = document.getElementById("p_1");
-            obj.style.visibility = "visible";
-
-            obj = document.getElementById("p_2");
-            obj.style.visibility = "visible";
-
-            obj = document.getElementById("lines");
-            obj.style.visibility = "visible";
-
-            obj = document.getElementById("p_4");
-            obj.style.visibility = "visible";
-
-            obj = document.getElementById("p_5");
-            obj.style.visibility = "visible";
-
-
+            //显示编辑区域
+            $('#info_area').show();
         }
         function onLoad() {
-            var obj = document.getElementById("p_1");
-            obj.style.visibility = "hidden";
 
-            obj = document.getElementById("p_2");
-            obj.style.visibility = "hidden";
-
-            obj = document.getElementById("lines");
-            obj.style.visibility = "hidden";
-
-            obj = document.getElementById("p_4");
-            obj.style.visibility = "hidden";
-
-            obj = document.getElementById("p_5");
-            obj.style.visibility = "hidden";
         }
 
     </script>
@@ -239,129 +209,128 @@
         <button class="btn-cha" type="button" id="addGroup" onclick="addGroup()">添加看房团</button>
     </div>
 
-    <div class="com-min" id="p_1">
-        <h3>标题设置</h3>
+    <div id="info_area" style="display: none;">
+        <div class="com-min" id="p_1">
+            <h3>标题设置</h3>
 
-        <form action="php/uploadfile.php" method="post" target="ifram_sign" enctype="multipart/form-data">
+            <form action="php/uploadfile.php" method="post" target="ifram_sign" enctype="multipart/form-data">
 
-            <img src="img/defaultbanner.jpg" id="banner" height="93"></img><br><br>
+                <img src="img/defaultbanner.jpg" id="banner" height="93"></img><br><br>
 
-            <div class="tipe-lb">
+                <div class="tipe-lb">
 
-                <label><span class="red">*</span>标题图片：</label>
-                <!--  <button class="btn-cha" type="button">上传标题图</button>-->
-                <input class="inp-tex inp-300" readonly name="" type="text" id="title_pic"/>
-
-
-                <input type="button" id="uploadImg" value="选择文件"></
-            >
-            <input class="inp-tex inp-300" name="picture" type="file" id="file" onChange="APPLY.OnUpload(this.value)"></
-        >
-        <input type="submit" id="submitImg" value="上传"/>
-        <span><img src="img/process.gif" id="process" style="visibility:hidden"></img></span>
+                    <label><span class="red">*</span>标题图片：</label>
+                    <!--  <button class="btn-cha" type="button">上传标题图</button>-->
+                    <input class="inp-tex inp-300" readonly name="" type="text" id="title_pic"/>
 
 
-    </div>
+                    <input type="button" id="uploadImg" value="选择文件">
+                    <input class="inp-tex inp-300" name="picture" type="file" id="file"
+                           onChange="APPLY.OnUpload(this.value)">
+                    <input type="submit" id="submitImg" value="上传"/>
+                    <span><img src="img/process.gif" id="process" style="visibility:hidden"></span>
+                </div>
 
-    <iframe name="ifram_sign" id="ifram_sign" src="" height="0" width="0" style="display:none;"></iframe>
+                <iframe name="ifram_sign" id="ifram_sign" src="" height="0" width="0" style="display:none;"></iframe>
 
-    <div class="tipe-lb"><label><span class="red">*</span>标题文案：</label>
-        <input class="inp-tex inp-300" name="" type="text" id="group_title"/></div>
-    <div class="tipe-lb"><label>期数：</label>
-        <input class="inp-tex inp-300" name="" type="text" id="qishu"/></div>
-</div>
-<div class="com-min" id="p_2">
-    <h3>活动说明</h3>
+                <div class="tipe-lb"><label><span class="red">*</span>标题文案：</label>
+                    <input class="inp-tex inp-300" name="" type="text" id="group_title"/></div>
+                <div class="tipe-lb"><label>期数：</label><input class="inp-tex inp-300" name="" type="text" id="qishu"/>
+                </div>
+            </form>
+        </div>
+        <div class="com-min" id="p_2">
+            <h3>活动说明</h3>
 
-    <div class="tipe-lb"><label><span class="red">*</span>所属楼盘：</label>
-        <select size="1" class="li-hd" id="loupan_op">
+            <div class="tipe-lb"><label><span class="red">*</span>所属楼盘：</label>
+                <select size="1" class="li-hd" id="loupan_op">
 
-        </select>
-    </div>
-    <div class="tipe-lb"><label>报名开始时间：</label>
+                </select>
+            </div>
+            <div class="tipe-lb"><label>报名开始时间：</label>
         <span class="calendar-ctrl"><input type="text" maxlength="10" value="" readonly name="theDate" class="text-tips"
                                            id="apply_beg_date"><span class="ico-calendar"
                                                                      onclick="displayCalendar(document.forms[0].theDate,'yyyy-mm-dd',this)"><!-- 日历图标 --></span></span>
-        <select size="1" class="li-hd" id="apply_beg_time">
-            <option>08:00:00</option>
-            <option>09:00:00</option>
-            <option>10:00:00</option>
-            <option>11:00:00</option>
-            <option>12:00:00</option>
-            <option>13:00:00</option>
-            <option>14:00:00</option>
-            <option>15:00:00</option>
-            <option>16:00:00</option>
-            <option>17:00:00</option>
-            <option>18:00:00</option>
-        </select>
-    </div>
+                <select size="1" class="li-hd" id="apply_beg_time">
+                    <option>08:00:00</option>
+                    <option>09:00:00</option>
+                    <option>10:00:00</option>
+                    <option>11:00:00</option>
+                    <option>12:00:00</option>
+                    <option>13:00:00</option>
+                    <option>14:00:00</option>
+                    <option>15:00:00</option>
+                    <option>16:00:00</option>
+                    <option>17:00:00</option>
+                    <option>18:00:00</option>
+                </select>
+            </div>
 
-    <div class="tipe-lb"><label>报名截止时间：</label>
+            <div class="tipe-lb"><label>报名截止时间：</label>
         <span class="calendar-ctrl"><input type="text" maxlength="10" value="" readonly name="theDate2"
                                            class="text-tips" id="apply_end_date"><span class="ico-calendar"
                                                                                        onclick="displayCalendar(document.forms[0].theDate2,'yyyy-mm-dd',this)"><!-- 日历图标 --></span></span>
-        <select size="1" class="li-hd" id="apply_end_time">
-            <option>08:00:00</option>
-            <option>09:00:00</option>
-            <option>10:00:00</option>
-            <option>11:00:00</option>
-            <option>12:00:00</option>
-            <option>13:00:00</option>
-            <option>14:00:00</option>
-            <option>15:00:00</option>
-            <option>16:00:00</option>
-            <option>17:00:00</option>
-            <option>18:00:00</option>
-        </select>
-    </div>
-    <div class="tipe-lb"><label>看房截止时间：</label>
+                <select size="1" class="li-hd" id="apply_end_time">
+                    <option>08:00:00</option>
+                    <option>09:00:00</option>
+                    <option>10:00:00</option>
+                    <option>11:00:00</option>
+                    <option>12:00:00</option>
+                    <option>13:00:00</option>
+                    <option>14:00:00</option>
+                    <option>15:00:00</option>
+                    <option>16:00:00</option>
+                    <option>17:00:00</option>
+                    <option>18:00:00</option>
+                </select>
+            </div>
+            <div class="tipe-lb"><label>看房截止时间：</label>
         <span class="calendar-ctrl"><input type="text" maxlength="10" value="" readonly name="theDate3"
                                            class="text-tips" id="view_end_date"><span class="ico-calendar"
                                                                                       onclick="displayCalendar(document.forms[0].theDate3,'yyyy-mm-dd',this)"><!-- 日历图标 --></span></span>
-        <select size="1" class="li-hd" id="view_end_time">
-            <option>08:00:00</option>
-            <option>09:00:00</option>
-            <option>10:00:00</option>
-            <option>11:00:00</option>
-            <option>12:00:00</option>
-            <option>13:00:00</option>
-            <option>14:00:00</option>
-            <option>15:00:00</option>
-            <option>16:00:00</option>
-            <option>17:00:00</option>
-            <option>18:00:00</option>
-        </select>
+                <select size="1" class="li-hd" id="view_end_time">
+                    <option>08:00:00</option>
+                    <option>09:00:00</option>
+                    <option>10:00:00</option>
+                    <option>11:00:00</option>
+                    <option>12:00:00</option>
+                    <option>13:00:00</option>
+                    <option>14:00:00</option>
+                    <option>15:00:00</option>
+                    <option>16:00:00</option>
+                    <option>17:00:00</option>
+                    <option>18:00:00</option>
+                </select>
+            </div>
+            </form>
+            <div class="tipe-lb"><label>活动优惠：</label> <textarea class="text-kuang" name="" cols="" rows=""
+                                                                id="info_1">150个字以内</textarea></div>
+            <div class="tipe-lb"><label>看房须知：</label> <textarea class="text-kuang" name="" cols="" rows=""
+                                                                id="info_2">400个字以内</textarea></div>
+            <div class="tipe-lb"><label>看房声明：</label> <textarea class="text-kuang" name="" cols="" rows=""
+                                                                id="info_3">400个字以内</textarea></div>
+        </div>
+        <div id="lines" class="com-min">
+            <h3>参团线路</h3>
+
+            <div class="tipe-lb"><label>线路名称：</label> <input class="inp-tex" name="" type="text" id="line1"/>
+
+            </div>
+
+
+            <!--  <div class="tipe-lb" ><label>说明：</label> <textarea class="text-kuang" name="" cols="" rows="" id="info_4">500个字以内</textarea></div>-->
+        </div>
+        <div id="p_4"><input name="" type="button" id="addline" value="添加线路" onclick="Addline()"/></div>
+        <div class="com-min" id="p_5">
+            <h3>操作</h3>
+            <input type="submit" id="apply_sumbit" class="btn-cha" value="确认添加"></input>
+            <input type="submit" id="apply_edit_sumbit" class="btn-cha" value="保存修改"></input>
+
+        </div>
     </div>
-    </form>
-    <div class="tipe-lb"><label>活动优惠：</label> <textarea class="text-kuang" name="" cols="" rows=""
-                                                        id="info_1">150个字以内</textarea></div>
-    <div class="tipe-lb"><label>看房须知：</label> <textarea class="text-kuang" name="" cols="" rows=""
-                                                        id="info_2">400个字以内</textarea></div>
-    <div class="tipe-lb"><label>看房声明：</label> <textarea class="text-kuang" name="" cols="" rows=""
-                                                        id="info_3">400个字以内</textarea></div>
+    <!-- 添加看房团 】】-->
 </div>
-<div id="lines" class="com-min">
-    <h3>参团线路</h3>
-
-    <div class="tipe-lb"><label>线路名称：</label> <input class="inp-tex" name="" type="text" id="line1"/>
-
-    </div>
-
-
-    <!--  <div class="tipe-lb" ><label>说明：</label> <textarea class="text-kuang" name="" cols="" rows="" id="info_4">500个字以内</textarea></div>-->
-</div>
-<div id="p_4"><input name="" type="button" id="addline" value="添加线路" onclick="Addline()"/></div>
-
-<div class="com-min" id="p_5">
-    <h3>操作</h3>
-    <input type="submit" id="apply_sumbit" class="btn-cha" value="确认添加"></input>
-    <input type="submit" id="apply_edit_sumbit" class="btn-cha" value="保存修改"></input>
-
-</div>
-
-<!-- 添加看房团 】】-->
-</div>
+<script type="text/javascript" src="./js/jquery-2.0.3.js"></script>
 <script type="text/javascript" src="./js/share.js"></script>
 <script type="text/javascript" src="./js/common.js"></script>
 <script type="text/javascript" src="./js/comm.js"></script>

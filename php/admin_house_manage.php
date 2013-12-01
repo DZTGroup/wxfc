@@ -424,7 +424,12 @@ function delete_group_info_Cmd_104($db_addr,$db_user,$db_pass,$db_name,$db_link,
 		$Result = json_encode($Res_json);
 		
 		//echo $Result;
-		echo "$CallBack($Result)";
+        if($CallBack){
+            echo "$CallBack($Result)";
+        }else{
+            echo "$Result";
+        }
+
 	}
 	
 	
