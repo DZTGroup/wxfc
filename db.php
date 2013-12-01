@@ -3,7 +3,7 @@
 $db_name = "wxfc";
 $db_user = "root";
 $db_pass = "655075d7dd";
-$db_addr = "localhost";
+$db_addr = "112.124.55.78";
 $db_result;
 $db_link;
 $db_select;

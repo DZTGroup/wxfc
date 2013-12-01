@@ -8,7 +8,12 @@ include ("comm.php");
 $ret = login( $name, $pass );
 if ( 0 == $ret )
 {
-	echo "<script>window.location=\"$jump\";</script>";
+    if($jump){
+        echo "<script>window.location=\"$jump\";</script>";
+    }else{
+        echo "<script>window.location=\"property_manage.html\";</script>";
+    }
+
 }
 else
 {
